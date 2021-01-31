@@ -1,6 +1,4 @@
 class Chocolate < ApplicationRecord
-  belongs_to :user
-  belongs_to :category
   belongs_to :category
   belongs_to :user #that they created
   has_many :reviews
