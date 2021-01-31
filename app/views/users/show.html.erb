@@ -1,4 +1,12 @@
-<h1>Show Page</h1>
-
+<p>Welcome <%= current_user.name %></p>
 
 My Chocolates:
+
+<ul>  
+<% current_user.chocolates.each do |chocolate| %>
+<%= chocolate.category.name %> <%= link_to "Add", user_path(current_user) %>
+<hr>
+<li><%= link_to chocolate.flavor, chocolate_path(chocolate) %></li>
+
+<% end %>
+</ul>

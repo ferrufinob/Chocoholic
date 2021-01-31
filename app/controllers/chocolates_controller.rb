@@ -1,5 +1,5 @@
 class ChocolatesController < ApplicationController
-  def show
-    
+  def index
+    @chocolates = Chocolate.all
   end
 end

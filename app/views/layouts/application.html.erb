@@ -13,11 +13,7 @@
 
   <!-- show flash message if any: -->
 
-  <% if alert %>
-      <%= alert %>
-    <% end %>
-
-  <%= render "layouts/navbar" %>
+  <%= render :partial => "layouts/navbar" %>
     <%= yield %>
   </body>
 </html>
