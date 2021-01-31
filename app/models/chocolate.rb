@@ -2,9 +2,9 @@ class Chocolate < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :category
-  belongs_to :user #creator
-  has_many :reviews #recieved
-  has_many :reviewers, through: :reviews, source: :user
-  has_many :chocolate_tasting_notes
-  has_many :tasting_notes, through: :chocolate_tasting_notes
+  belongs_to :user #that they created
+  has_many :reviews
+  has_many :reviewers, through: :reviews, source: :user #recieved
+  # has_many :chocolate_tasting_terms
+  has_many :tasting_terms, through: :chocolate_tasting_terms
 end
