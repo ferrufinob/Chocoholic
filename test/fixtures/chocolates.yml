@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: MyString
+  flavor: MyString
+  country: MyString
+  note: MyString
+  cocoa: MyString
+  user: one
+  category: one
+
+two:
+  brand: MyString
+  flavor: MyString
+  country: MyString
+  note: MyString
+  cocoa: MyString
+  user: two
+  category: two
