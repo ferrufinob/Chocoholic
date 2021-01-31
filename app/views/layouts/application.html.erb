@@ -10,6 +10,13 @@
   </head>
 
   <body>
+
+  <!-- show flash message if any: -->
+
+  <% if alert %>
+      <%= alert %>
+    <% end %>
+
   <%= render "layouts/navbar" %>
     <%= yield %>
   </body>

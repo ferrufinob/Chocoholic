@@ -4,12 +4,12 @@ class SessionsController < ApplicationController
 
   def create
     #find user & autheticate
-    @user = User.find_by(email: params[:user][:email])
-    if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
+    user = User.find_by(email: params[:user][:email])
+    if user && user.authenticate(params[:user][:password])
+      session[:user_id] = user.id
+      redirect_to user_path(user)
     else
-      redirect_to login_path
+      redirect_to login_path, alert: "Wrong Email and Password Combination"
     end
   end
 
