@@ -4,7 +4,7 @@ class CreateChocolates < ActiveRecord::Migration[6.0]
       t.string :brand
       t.string :flavor
       t.string :country
-      t.string :note
+      t.text :note
       t.string :cocoa
       t.belongs_to :user, null: false, foreign_key: true
       t.belongs_to :category, null: false, foreign_key: true
