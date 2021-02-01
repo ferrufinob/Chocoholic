@@ -6,3 +6,4 @@
 <p>Category: <%= @chocolate.category.name %></p>
 
 <%= link_to "Edit", edit_chocolate_path(@chocolate) %>
+<%= link_to "Delete", @chocolate, method: :delete, data: { confirm: "Are you sure?" } %>

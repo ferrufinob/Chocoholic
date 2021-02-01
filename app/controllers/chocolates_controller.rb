@@ -22,7 +22,7 @@ class ChocolatesController < ApplicationController
   def create
     @chocolate = current_user.chocolates.build(chocolate_params)
     if @chocolate.save
-      redirect_to chocolates_path
+      redirect_to chocolate_path(@chocolate)
     else
       render :new
     end
@@ -40,6 +40,15 @@ class ChocolatesController < ApplicationController
       redirect_to chocolate_path(@chocolate)
     else
       render "edit"
+    end
+  end
+
+  def destroy
+    @chocolate = Chocolate.find_by_id(params[:id])
+    if @chocolate.destroy
+      redirect_to chocolates_url
+    else
+      redirect_to chocolates_url
     end
   end
 
