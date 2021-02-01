@@ -7,4 +7,10 @@ class Chocolate < ApplicationRecord
   # ! leave this last, deal with after I meet all requirements
   # has_many :chocolate_tasting_terms
   # has_many :tasting_terms, through: :chocolate_tasting_terms
+
+  def category_attributes=(attribute)
+    if !attribute[:name].blank?
+      self.category = Category.find_or_create_by(attribute)
+    end
+  end
 end

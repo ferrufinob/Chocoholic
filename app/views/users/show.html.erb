@@ -3,8 +3,7 @@ My Chocolates:
 
 <ul>  
 <% current_user.chocolates.each do |chocolate| %>
-<%= link_to chocolate.category.name, category_chocolates_path(chocolate.category) %>
-<li><%= link_to chocolate.flavor, chocolate_path(chocolate) %></li> - <%= chocolate.category.name %>
+<li><%= link_to chocolate.flavor, chocolate_path(chocolate) %> - <%= chocolate.brand %></li>
 <% end %>
 </ul>
 

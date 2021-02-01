@@ -12,7 +12,7 @@ class ChocolatesController < ApplicationController
   def new
     @chocolate = Chocolate.new
     @categories = Category.all
-    # @chocolate.build_category
+    @chocolate.build_category
   end
 
   def create
@@ -33,7 +33,8 @@ class ChocolatesController < ApplicationController
       :cocoa,
       :country,
       :note,
-      :category_id
+      :category_id,
+      category_attributes: [:name],
     )
   end
 end
