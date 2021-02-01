@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :reviews #they create
+  has_many :reviews #they created
   has_many :reviewed_chocolates, through: :reviews, source: :chocolate #chocolates they have reviewed
   #SELECT "chocolates".* FROM "chocolates" INNER JOIN "reviews" ON "chocolates"."id" = "reviews"."chocolate_id" WHERE "reviews"."user_id" = ? LIMIT ?
 

@@ -1,0 +1,20 @@
+<%= form_for @chocolate do |f| %>
+<%= f.label :brand %>
+<%= f.text_field :brand %> <br>
+<%= f.label :flavor %>
+<%= f.text_field :flavor %> <br>
+<%= f.label :cocoa %>
+<%= f.number_field :cocoa, placeholder: "cocoa/cacao percent" %> <br>
+<%= f.label :rating, "rate(1-5)" %>
+<%= f.number_field :rating %> <br>
+<%= f.label :note, "Additional Information" %> <br>
+<%= f.text_area :note, placeholder: "optional" %> <br>
+
+<%= f.label :category, "Choose a Category" %>
+<%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %><br> 
+
+<%= f.fields_for :category do |cat_field| %>
+<%= cat_field.text_field :name, placeholder: "Or add your own" %>
+<% end %>
+<%= f.submit %>
+<% end %>

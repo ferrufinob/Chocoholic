@@ -4,3 +4,5 @@
 <p>Rating: <%= @chocolate.rating %></p>
 <p>additonal info: <%= @chocolate.note %></p>
 <p>Category: <%= @chocolate.category.name %></p>
+
+<%= link_to "Edit", edit_chocolate_path(@chocolate) %>

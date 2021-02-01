@@ -8,6 +8,8 @@ class Chocolate < ApplicationRecord
   # has_many :chocolate_tasting_terms
   # has_many :tasting_terms, through: :chocolate_tasting_terms
 
+#scopes => darkest chocolates(order them from darkest to least dark)
+
   def category_attributes=(attribute)
     if !attribute[:name].blank?
       self.category = Category.find_or_create_by(attribute)

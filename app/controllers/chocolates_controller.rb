@@ -9,6 +9,10 @@ class ChocolatesController < ApplicationController
     end
   end
 
+  def show
+    @chocolate = Chocolate.find_by_id(params[:id])
+  end
+
   def new
     @chocolate = Chocolate.new
     @categories = Category.all
@@ -24,8 +28,19 @@ class ChocolatesController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @chocolate = Chocolate.find_by_id(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    @chocolate = Chocolate.find_by_id(params[:id])
+
+    if @chocolate.update(chocolate_params)
+      redirect_to chocolate_path(@chocolate)
+    else
+      render "edit"
+    end
   end
 
   private
@@ -35,7 +50,7 @@ class ChocolatesController < ApplicationController
       :brand,
       :flavor,
       :cocoa,
-      :country,
+      :rating,
       :note,
       :category_id,
       category_attributes: [:name],
