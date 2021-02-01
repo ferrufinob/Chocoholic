@@ -1,14 +1,13 @@
-<h3>Browse by Category:</h3> 
-
-  <% @categories.each do |category| %>
+<h3>Browse by Category:</h3>
+<% @categories.each do |category| %>
   <ul>
     <%= category.name %>
-    </ul>
-  <% end %>
+  </ul>
+<% end %>
 <hr>
 <h3>All Chocolates:</h3>
-<ul>
-  <% @chocolates.each do |chocolate| %>
+<% @chocolates.each do |chocolate| %>
+  <ul>
     <%= link_to chocolate.flavor, chocolate_path(chocolate) %> by: <%= chocolate.brand %>
-  <% end %>
-</ul>
+  </ul>
+<% end %>
