@@ -13,8 +13,11 @@
 <%= f.text_area :note, placeholder: "optional" %> <br>
 
 <%= f.label :category, "Choose a Category" %>
-<%= f.collection_select :category_id, @categories, :id, :name %> <br> 
+<%= f.collection_select :category_id, @categories, :id, :name %><br> 
 
+<%= f.fields_for :chocolate, @chocolate.build_category do |cat_field| %>
+<%= cat_field.text_field :name, placeholder: "Or add your own" %>
+<% end %>
 <%= f.submit %>
 <% end %>
 
