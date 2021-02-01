@@ -1,5 +1,6 @@
 <% if logged_in? %>
     <%= link_to "Home", chocolates_path %>
+    <%= link_to "All Categories", categories_path %>
     <%= link_to current_user.name, user_path(current_user) %>
     <%= link_to "New Chocolate", new_chocolate_path %>
     <%= link_to "Logout", logout_path, method: :delete %>
