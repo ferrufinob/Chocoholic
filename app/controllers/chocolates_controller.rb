@@ -1,4 +1,6 @@
 class ChocolatesController < ApplicationController
+  before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
+
   def index
     #checking if nested and if we can find that chocolate
     if params[:category_id] && @category = Category.find_by_id(params[:category_id])
@@ -10,13 +12,10 @@ class ChocolatesController < ApplicationController
   end
 
   def show
-    @chocolate = Chocolate.find_by_id(params[:id])
-    
   end
 
   def new
     @chocolate = Chocolate.new
-    @categories = Category.all
     @chocolate.build_category
   end
 
@@ -30,13 +29,9 @@ class ChocolatesController < ApplicationController
   end
 
   def edit
-    @chocolate = Chocolate.find_by_id(params[:id])
-    @categories = Category.all
   end
 
   def update
-    @chocolate = Chocolate.find_by_id(params[:id])
-
     if @chocolate.update(chocolate_params)
       redirect_to chocolate_path(@chocolate)
     else
@@ -45,7 +40,6 @@ class ChocolatesController < ApplicationController
   end
 
   def destroy
-    @chocolate = Chocolate.find_by_id(params[:id])
     if @chocolate.destroy
       redirect_to chocolates_url
     else
@@ -65,5 +59,9 @@ class ChocolatesController < ApplicationController
       :category_id,
       category_attributes: [:name],
     )
+  end
+
+  def set_chocolate
+    @chocolate = Chocolate.find_by_id(params[:id])
   end
 end
