@@ -11,6 +11,7 @@ class ChocolatesController < ApplicationController
 
   def show
     @chocolate = Chocolate.find_by_id(params[:id])
+    
   end
 
   def new

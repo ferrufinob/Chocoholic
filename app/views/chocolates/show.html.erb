@@ -5,5 +5,24 @@
 <p>additonal info: <%= @chocolate.note %></p>
 <p>Category: <%= @chocolate.category.name %></p>
 
+<%= link_to "Write a review", new_chocolate_review_path(@chocolate) %> <br> <br>
+
+Reviews:
+<% if @chocolate.reviews.blank? %>
+  <p>There are no reviews yet.</p>
+  <% else %>
+
+<% @chocolate.reviews.each do |review| %>
+<ul>
+  <%= review.user.name %> says:
+  <%= review.rating %> stars <br>
+  <%= review.comment %>
+  </ul>
+<% end %>
+
+<% end %>
+
+
+
 <%= link_to "Edit", edit_chocolate_path(@chocolate) %>
 <%= link_to "Delete", @chocolate, method: :delete, data: { confirm: "Are you sure?" } %>

@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create]
 
-  resources :chocolates do
-    resources :reviews, shallow: true
-  end
+  resources :reviews
 
-  resources :categories, only: [:index, :show] do
+  resources :chocolates do
+    resources :reviews, only: [:index, :new, :create]
+  end
+  resources :categories, except: [:destroy] do
     resources :chocolates, shallow: true
   end
 end
