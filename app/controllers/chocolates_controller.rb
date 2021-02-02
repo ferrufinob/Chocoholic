@@ -1,6 +1,6 @@
 class ChocolatesController < ApplicationController
   load_and_authorize_resource
-  before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
+  # before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
 
   def index
     #checking if nested and if we can find that chocolate
@@ -16,7 +16,7 @@ class ChocolatesController < ApplicationController
   end
 
   def new
-    @chocolate = Chocolate.new
+    # @chocolate = Chocolate.new
     @chocolate.build_category
   end
 
@@ -63,7 +63,7 @@ class ChocolatesController < ApplicationController
     )
   end
 
-  def set_chocolate
-    @chocolate = Chocolate.find_by_id(params[:id])
-  end
+  # def set_chocolate
+  #   @chocolate = Chocolate.find_by_id(params[:id])
+  # end
 end

@@ -28,5 +28,10 @@
 
 
 
+<% if can? :update, @chocolate %>
 <%= link_to "Edit", edit_chocolate_path(@chocolate) %>
+<% end %>
+
+<% if can? :destroy, @chocolate %>
 <%= link_to "Delete", @chocolate, method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
