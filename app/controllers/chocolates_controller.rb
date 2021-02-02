@@ -57,6 +57,7 @@ class ChocolatesController < ApplicationController
       :cocoa,
       :rating,
       :note,
+      :avatar,
       :category_id,
       category_attributes: [:name],
     )

@@ -1,6 +1,8 @@
+
 <h3>All Chocolates:</h3>
 <% @chocolates.each do |chocolate| %>
   <ul>
     <%= link_to chocolate.flavor, chocolate_path(chocolate) %> by: <%= chocolate.brand %>
   </ul>
 <% end %>
+

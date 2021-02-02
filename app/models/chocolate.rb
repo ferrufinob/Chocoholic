@@ -1,4 +1,5 @@
 class Chocolate < ApplicationRecord
+  has_one_attached :avatar
   belongs_to :category
   belongs_to :user #that they created
   has_many :reviews

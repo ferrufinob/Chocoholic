@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     if @review.destroy
-      redirect_to chocolates_url
+      redirect_to chocolate_url(@review.chocolate)
     else
       redirect_to chocolates_url
     end

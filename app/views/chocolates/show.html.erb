@@ -1,9 +1,13 @@
 <h3>Brand: <%= @chocolate.brand %></h3>
 <h4>Flavor: <%= @chocolate.flavor %></h4>
+<% if @chocolate.avatar.attached? %>
+<image src="<%= (url_for(@chocolate.avatar)) %>">
+<% end %> <br>
 <p>Cocoa: <%= @chocolate.cocoa %></p>
 <p>Rating: <%= @chocolate.rating %></p>
 <p>additonal info: <%= @chocolate.note %></p>
 <p>Category: <%= @chocolate.category.name %></p>
+
 
 <%= link_to "Write a review", new_chocolate_review_path(@chocolate) %> <br> <br>
 
