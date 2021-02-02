@@ -16,6 +16,7 @@
   <%= review.user.name %> 
   <%= review.rating %> stars <br>
   <%= review.comment %>
+  <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %>
   </ul>
 <% end %>
 

@@ -27,6 +27,14 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    if @review.destroy
+      redirect_to chocolates_url
+    else
+      redirect_to chocolates_url
+    end
+  end
+
   private
 
   def review_params

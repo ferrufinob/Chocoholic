@@ -5,13 +5,14 @@ class Ability
 
   def initialize(user)
     #permissions for all users, even not logged in users
-    can :read, Chocolate
+    can :read, [Chocolate, Category]
     can :create, User
     #permissions for logged in users
     if user.present?
       can :manage, Chocolate, user_id: user.id
-      can :read, Category
-      can :manage, User
+      # can :create, Category
+      can :manage, User, id: user.id
+      can :manage, Review, user_id: user.id
     end
 
     # Define abilities for the passed in user here. For example:
