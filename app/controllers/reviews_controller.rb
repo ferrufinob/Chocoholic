@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  load_and_authorize_resource
+
   def index
   end
 
@@ -34,6 +36,4 @@ class ReviewsController < ApplicationController
       :chocolate_id
     )
   end
-
-  
 end

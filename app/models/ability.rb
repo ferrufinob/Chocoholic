@@ -4,6 +4,15 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    #permissions for all users, even not logged in users
+    can :read, Chocolate
+    can :create, User
+    #permissions for logged in users
+    if user.present?
+      can :manage, Chocolate, user_id: user.id
+      can :read, Category
+    end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

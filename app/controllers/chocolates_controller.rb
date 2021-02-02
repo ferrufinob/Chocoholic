@@ -1,4 +1,5 @@
 class ChocolatesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
 
   def index
