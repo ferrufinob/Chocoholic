@@ -3,6 +3,7 @@ class Chocolate < ApplicationRecord
   belongs_to :user #that they created
   has_many :reviews
   has_many :users, through: :reviews #recieved
+  validates :flavor, uniqueness: { scope: :brand, message: " already exists for this brand" }
 
   # ! leave this last, deal with after I meet all requirements
   # has_many :chocolate_tasting_terms

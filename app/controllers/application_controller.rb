@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  # rescue_from ActionController::InvalidAuthenticityToken, with: :rescue_422
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
@@ -17,7 +19,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def redirect_if_logged_in
-    redirect_to login_path, alert: "You must be logged in to access this page." if !logged_in?
+  def rescue_422
+    redirect_to "/422"
   end
 end

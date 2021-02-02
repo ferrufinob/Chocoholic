@@ -11,6 +11,7 @@ class Ability
     if user.present?
       can :manage, Chocolate, user_id: user.id
       can :read, Category
+      can :manage, User
     end
 
     # Define abilities for the passed in user here. For example:
