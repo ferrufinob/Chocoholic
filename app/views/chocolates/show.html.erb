@@ -13,7 +13,7 @@
   <%= link_to "Write a review", new_chocolate_review_path(@chocolate) %> <br> <br>
  
   <p>to leave a review <%= link_to "log in", login_path %>  or <%= link_to "sign up", signup_path %></p>
-<
+
 
 <% if @chocolate.reviews.blank? %>
   <p>There are no reviews yet.</p>
@@ -24,9 +24,9 @@
   <%= time_ago_in_words(review.created_at) %> ago by <%= review.user.name %> <br>
   <%= review.rating %> stars <br>
   <%= review.comment %> <br>
-  <% if can? :destroy?, review %>
+  
   <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
+  
   </ul>
 <% end %>
 <% end %>

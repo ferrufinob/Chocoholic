@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
+  before_action :check_signed_in, only: [:new]
+
   def new
-    unless logged_in?
-      @user = User.new
-    else
-      redirect_to root_path
-    end
+    @user = User.new
   end
 
   def create

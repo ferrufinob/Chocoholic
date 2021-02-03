@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
 
-  protected
+  private
 
   def current_user
     #look up the current user based on user_id in session cookie
@@ -12,5 +12,15 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_user
+  end
+
+  def require_login
+    unless current_user
+      redirect_to root_url, alert: "You must be logged in to perform this action"
+    end
+  end
+
+  def check_signed_in
+    redirect_to chocolates_path if logged_in?
   end
 end

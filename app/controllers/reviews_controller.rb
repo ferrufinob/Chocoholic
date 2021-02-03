@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:edit, :update, :show, :destroy]
+  before_action :require_login
   before_action :find_chocolate
+  before_action :set_review, only: [:edit, :update, :show, :destroy]
 
   def index
     #if nested

@@ -1,5 +1,5 @@
 class ChocolatesController < ApplicationController
-  #cancan loads the resource into an instance variable(post.new && post.find)
+  before_action :require_login
   before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
 
   def index
@@ -65,5 +65,8 @@ class ChocolatesController < ApplicationController
 
   def set_chocolate
     @chocolate = Chocolate.find_by_id(params[:id])
+    if !@chocolate
+      redirect_to chocolates_path
+    end
   end
 end
