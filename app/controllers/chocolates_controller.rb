@@ -1,5 +1,6 @@
 class ChocolatesController < ApplicationController
   load_and_authorize_resource
+  #cancan loads the resource into an instance variable(post.new && post.find)
   # before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
 
   def index
@@ -8,7 +9,7 @@ class ChocolatesController < ApplicationController
       #show all the chocolates that are a part of the category
       @chocolates = @category.chocolates
     else
-      @chocolates = Chocolate.all
+      @chocolates = Chocolate.most_popular
     end
   end
 
@@ -16,7 +17,7 @@ class ChocolatesController < ApplicationController
   end
 
   def new
-    # @chocolate = Chocolate.new
+    @chocolate = Chocolate.new
     @chocolate.build_category
   end
 
@@ -63,7 +64,7 @@ class ChocolatesController < ApplicationController
     )
   end
 
-  # def set_chocolate
-  #   @chocolate = Chocolate.find_by_id(params[:id])
-  # end
+  def set_chocolate
+    @chocolate = Chocolate.find_by_id(params[:id])
+  end
 end

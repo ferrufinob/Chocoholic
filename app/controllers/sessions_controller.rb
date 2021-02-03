@@ -2,6 +2,12 @@ class SessionsController < ApplicationController
   def welcome
   end
 
+  def new
+    if logged_in?
+      redirect_to root_path
+    end
+  end
+
   def create
     #find user & autheticate
     user = User.find_by(email: params[:user][:email])

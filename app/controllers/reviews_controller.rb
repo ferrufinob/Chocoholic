@@ -1,25 +1,25 @@
 class ReviewsController < ApplicationController
-  load_and_authorize_resource
+  authorize_resource
+  before_action :set_review, only: [:edit, :update, :show, :destroy]
+  before_action :set_chocolate, only: [:new, :create]
 
   def index
   end
 
   def show
-    # @chocolate = Chocolate.find(params[:chocolate_id])
-    # @reviews = @chocolate.reviews
   end
 
   def new
-    # if user changes parameters in developers tool they get Unpermitter parameter
-    if params[:chocolate_id] && !Chocolate.exists?(params[:chocolate_id])
-      redirect_to root_path
+    if @chocolate
+      @review = @chocolate.reviews.build
     else
-      @review = Review.new(chocolate_id: params[:chocolate_id])
+      redirect_to root_path, alert: "Oops that Chocolate doesn't exist"
     end
   end
 
   def create
-    @review = current_user.reviews.build(review_params)
+    @review = @chocolate.reviews.build(review_params)
+    @review.user = current_user
     if @review.save
       redirect_to chocolate_path(@review.chocolate)
     else
@@ -29,9 +29,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     if @review.destroy
-      redirect_to chocolate_url(@review.chocolate)
-    else
-      redirect_to chocolates_url
+      redirect_to root_path
     end
   end
 
@@ -40,8 +38,15 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(
       :rating,
-      :comment,
-      :chocolate_id
+      :comment
     )
+  end
+
+  def set_review
+    @review = Review.find_by_id(params[:id])
+  end
+
+  def set_chocolate
+    @chocolate = Chocolate.find_by_id(params[:chocolate_id])
   end
 end

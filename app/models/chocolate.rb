@@ -2,10 +2,10 @@ class Chocolate < ApplicationRecord
   has_one_attached :avatar
   belongs_to :category
   belongs_to :user #that they created
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :users, through: :reviews #recieved
   validates :flavor, uniqueness: { scope: :brand, message: " already exists for this brand" }
-
+scope :most_popular, -> { where("rating >= 4 ") }
   # ! leave this last, deal with after I meet all requirements
   # has_many :chocolate_tasting_terms
   # has_many :tasting_terms, through: :chocolate_tasting_terms

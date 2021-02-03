@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def new
-    @user = User.new
+    unless logged_in?
+      @user = User.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create

@@ -19,7 +19,10 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def rescue_422
-    redirect_to "/422"
+  def redirect_if_not_logged_in
+    
   end
+  # def rescue_422
+  #   redirect_to "/422"
+  # end
 end

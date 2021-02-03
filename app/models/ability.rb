@@ -8,6 +8,7 @@ class Ability
     can :read, [Chocolate, Category]
     can :create, User
     #permissions for logged in users
+    #manage has all the CRUD actions
     if user.present?
       can :manage, Chocolate, user_id: user.id
       # can :create, Category

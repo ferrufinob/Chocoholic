@@ -1,5 +1,5 @@
 <h3>Brand: <%= @chocolate.brand %></h3>
-<h4>Flavor: <%= @chocolate.flavor %></h4>
+<h4>Flavor: <%= @chocolate.flavor %></h4> 
 <% if @chocolate.avatar.attached? %>
 <image src="<%= (url_for(@chocolate.avatar)) %>">
 <% end %> <br>
@@ -7,9 +7,13 @@
 <p>Rating: <%= @chocolate.rating %></p>
 <p>additonal info: <%= @chocolate.note %></p>
 <p>Category: <%= @chocolate.category.name %></p>
+<p>Added: <%= time_ago_in_words(@chocolate.created_at) %> ago</p>
 
-
-<%= link_to "Write a review", new_chocolate_review_path(@chocolate) %> <br> <br>
+ <% if can? :create, Review %>
+  <%= link_to "Write a review", new_chocolate_review_path(@chocolate) %> <br> <br>
+  <% else %>
+  <p>to leave a review <%= link_to "log in", login_path %>  or <%= link_to "sign up", signup_path %></p>
+<% end %>
 
 <% if @chocolate.reviews.blank? %>
   <p>There are no reviews yet.</p>
@@ -17,10 +21,12 @@
   <p>Reviews <%= @chocolate.reviews.size %></p>
 <% @chocolate.reviews.each do |review| %>
 <ul>
-  <%= review.user.name %> 
+  <%= time_ago_in_words(review.created_at) %> ago by <%= review.user.name %> <br>
   <%= review.rating %> stars <br>
-  <%= review.comment %>
+  <%= review.comment %> <br>
+  <% if can? :destroy?, review %>
   <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
   </ul>
 <% end %>
 
