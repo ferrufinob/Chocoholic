@@ -8,9 +8,9 @@
       for <%= link_to review.chocolate.flavor, chocolate_path(review.chocolate) %> <br>
       <%= review.rating %> stars <br>
       <%= review.comment %> <br>
-      <% if can? :destroy?, review %>
+      
         <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %>
-      <% end %>
+     
     </ul>
   <% end %>
 <% end %>

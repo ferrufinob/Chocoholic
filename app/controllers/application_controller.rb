@@ -1,17 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  
-  rescue_from ActionController::InvalidAuthenticityToken do
-    redirect_to root_url, :alert => "Unpermitted Action"
-  end
-
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
-  end
 
   helper_method :current_user, :logged_in?
-
-
 
   protected
 
@@ -23,5 +13,4 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
-
 end

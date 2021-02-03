@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  authorize_resource
   before_action :set_review, only: [:edit, :update, :show, :destroy]
+  before_action :find_chocolate
 
   def index
     #if nested
@@ -15,15 +15,16 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    if @chocolate = Chocolate.find_by_id(params[:chocolate_id])
-      @review = @chocolate.reviews.build
+    if params[:chocolate_id] && !Chocolate.exists?(params[:chocolate_id])
+      redirect_to chocolates_path, alert: "Chocolate not found."
     else
-      redirect_to root_path, alert: "Oops that Chocolate doesn't exist"
+      # @chocolate = Chocolate.find_by_id(params[:chocolate_id])
+      @review = Review.new
     end
   end
 
   def create
-    @chocolate = Chocolate.find_by_id(params[:chocolate_id])
+    # @chocolate = Chocolate.find_by_id(params[:chocolate_id])
     @review = @chocolate.reviews.build(review_params)
     @review.user = current_user
     if @review.save
@@ -35,7 +36,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to chocolates_path, alert: "Successfully Deleted Comment"
+    redirect_to chocolate_path(@review.chocolate), alert: "Successfully Deleted Comment"
   end
 
   private
@@ -49,5 +50,9 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find_by_id(params[:id])
+  end
+
+  def find_chocolate
+    @chocolate = Chocolate.find_by_id(params[:chocolate_id])
   end
 end

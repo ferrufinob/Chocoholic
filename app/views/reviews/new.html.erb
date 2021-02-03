@@ -1,4 +1,6 @@
-<%= form_for [@chocolate, @review] do |f| %>
+<h3>Review for: <%= @chocolate.flavor %></h3>
+
+<%= form_for ([@chocolate, @review]) do |f| %>
 <%= f.label :rating %>
 <%= f.number_field :rating %>
 <%= f.label :comment %>

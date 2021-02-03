@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
-
   def new
     unless logged_in?
       @user = User.new

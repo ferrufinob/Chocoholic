@@ -1,7 +1,6 @@
 class ChocolatesController < ApplicationController
-  load_and_authorize_resource
   #cancan loads the resource into an instance variable(post.new && post.find)
-  # before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
+  before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
 
   def index
     #checking if nested and if we can find that chocolate
