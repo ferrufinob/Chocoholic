@@ -1,16 +1,21 @@
 class ReviewsController < ApplicationController
   authorize_resource
   before_action :set_review, only: [:edit, :update, :show, :destroy]
-  before_action :set_chocolate, only: [:new, :create]
 
   def index
+    #if nested
+    if params[:chocolate_id] && @chocolate = Chocolate.find_by_id(params[:chocolate_id])
+      @reviews = @chocolate.reviews
+    else
+      @reviews = current_user.reviews #otherwise show users if user clicks view all link
+    end
   end
 
   def show
   end
 
   def new
-    if @chocolate
+    if @chocolate = Chocolate.find_by_id(params[:chocolate_id])
       @review = @chocolate.reviews.build
     else
       redirect_to root_path, alert: "Oops that Chocolate doesn't exist"
@@ -18,6 +23,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @chocolate = Chocolate.find_by_id(params[:chocolate_id])
     @review = @chocolate.reviews.build(review_params)
     @review.user = current_user
     if @review.save
@@ -28,9 +34,8 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    if @review.destroy
-      redirect_to root_path
-    end
+    @review.destroy
+    redirect_to chocolates_path, alert: "Successfully Deleted Comment"
   end
 
   private
@@ -44,9 +49,5 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find_by_id(params[:id])
-  end
-
-  def set_chocolate
-    @chocolate = Chocolate.find_by_id(params[:chocolate_id])
   end
 end

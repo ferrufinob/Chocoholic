@@ -14,6 +14,9 @@
   <!-- show flash message if any: -->
 
   <%= render :partial => "layouts/navbar" %>
+  <% if alert %>
+  <p><%= alert %></p>
+<% end %>
     <%= yield %>
   </body>
 </html>
