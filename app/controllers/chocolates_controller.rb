@@ -1,6 +1,7 @@
 class ChocolatesController < ApplicationController
   before_action :require_login
   before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
+  before_action :authorized_to_edit, only: [:edit, :update, :destroy]
 
   def index
     #checking if nested and if we can find that chocolate
@@ -8,7 +9,7 @@ class ChocolatesController < ApplicationController
       #show all the chocolates that are a part of the category
       @chocolates = @category.chocolates
     else
-      @chocolates = Chocolate.most_popular
+      @chocolates = Chocolate.all
     end
   end
 
@@ -41,11 +42,8 @@ class ChocolatesController < ApplicationController
   end
 
   def destroy
-    if @chocolate.destroy
-      redirect_to chocolates_url
-    else
-      redirect_to chocolates_url
-    end
+    @chocolate.destroy
+    redirect_to chocolates_url, alert: "successfully deleted chocolate"
   end
 
   private
@@ -64,9 +62,14 @@ class ChocolatesController < ApplicationController
   end
 
   def set_chocolate
-    @chocolate = Chocolate.find_by_id(params[:id])
-    if !@chocolate
-      redirect_to chocolates_path
+    unless @chocolate = Chocolate.find_by_id(params[:id])
+      redirect_to chocolates_path, alert: "Chocolate not found."
+    end
+  end
+
+  def authorized_to_edit
+    if current_user != @chocolate.user
+      redirect_to chocolates_path, alert: "Action not authorized."
     end
   end
 end

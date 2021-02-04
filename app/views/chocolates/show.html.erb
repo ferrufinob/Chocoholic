@@ -3,8 +3,6 @@
 <% if @chocolate.avatar.attached? %>
 <image src="<%= (url_for(@chocolate.avatar)) %>">
 <% end %> <br>
-<p>Cocoa: <%= @chocolate.cocoa %></p>
-<p>Rating: <%= @chocolate.rating %></p>
 <p>additonal info: <%= @chocolate.note %></p>
 <p>Category: <%= @chocolate.category.name %></p>
 <p>Added: <%= time_ago_in_words(@chocolate.created_at) %> ago</p>

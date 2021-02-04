@@ -12,7 +12,7 @@ cat3 = Category.create(name: "White Chocolate")
 user = User.create(name: "Brenda", email: "example@email.com", password: "password")
 user2 = User.create(name: "Tom", email: "test@test.com", password: "password")
 
-chocolate = Chocolate.create(brand: "Endangered Species", flavor: "Bold +Silky Dark Chocolate", note: "dairy free", cocoa: 72, rating: 5, category_id: cat1.id, user_id: user.id)
+chocolate = Chocolate.create(brand: "Endangered Species", flavor: "Bold +Silky Dark Chocolate", note: "dairy free", category_id: cat1.id, user_id: user.id)
 
 #how do I find my chocolate's category?
 #Chocolate.find(1).category
