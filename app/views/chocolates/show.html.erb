@@ -1,16 +1,13 @@
 <h3>Brand: <%= @chocolate.brand %></h3>
 <h4>Flavor: <%= @chocolate.flavor %></h4> 
-<% if @chocolate.avatar.attached? %>
-<image src="<%= (url_for(@chocolate.avatar)) %>">
+<% if @chocolate.image.attached? %>
+<%= image_tag @chocolate.image.variant(resize: "500x500") %>
 <% end %> <br>
 <p>additonal info: <%= @chocolate.note %></p>
 <p>Category: <%= @chocolate.category.name %></p>
-
-<ul>
-<% @chocolate.tasting_terms.each do |t| %>
- <%= t.term %>
- <% end %>
-</ul>
+Dairy Free: <%= @chocolate.dairy_free_yn %> <br>
+Nut Free: <%= @chocolate.nut_free_yn %>
+ 
  
 <p>Added: <%= time_ago_in_words(@chocolate.created_at) %> ago</p>
 

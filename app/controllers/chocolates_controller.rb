@@ -19,7 +19,6 @@ class ChocolatesController < ApplicationController
   def new
     @chocolate = Chocolate.new
     @chocolate.build_category
-    @chocolate.tasting_terms.build
   end
 
   def create
@@ -56,11 +55,12 @@ class ChocolatesController < ApplicationController
       :cocoa,
       :rating,
       :note,
-      :avatar,
+      :image,
       :category_id,
+      :dairy_free,
+      :nut_free,
       category_attributes: [:name],
-      tasting_term_ids: [],
-      tasting_terms_attributes: [:term],
+
     )
   end
 

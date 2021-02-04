@@ -5,18 +5,23 @@
 <%= f.text_field :brand %> <br>
 <%= f.label :flavor %>
 <%= f.text_field :flavor %> <br>
-<%= f.label "Chocolate Photo" %> <br>
-<%= f.file_field :avatar %> <br>
-<%= f.label :category, "Choose a Category" %> <br>
+<% if @chocolate.image.attached? %>
+<%= image_tag @chocolate.image, style: "width: 200px; display: block" %>
+<% end %>
+<%= f.label "Chocolate Image" %> <br>
+<%= f.file_field :image %> <br>
+<%= f.label :dairy_free, "Is this chocolate dairy free?" %>
+<%= f.select :dairy_free, [["No", false], ["Yes", true]] %> <br>
+<%= f.label :nut_free, "Is this chocolate nut free" %>
+<%= f.select :nut_free, [["No", false], ["Yes", true]] %> <br>
+<%= f.label :note, "any additional information you'd like to share?" %> <br>
+<%= f.text_area :note, placeholder: "optional" %> <br>
+<%= f.label :category, "Choose a Category" %>
 <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %><br> 
-
+ 
 <%= f.fields_for :category do |cat_field| %>
-<%= cat_field.text_field :name, placeholder: "Or add your own category" %>
+create your own if no match found<%= cat_field.text_field :name, placeholder: "add category name" %> <br>
 <% end %>
 
-<%= f.collection_check_boxes :tasting_term_ids, TastingTerm.all, :id, :term %> <br>
-<%= f.fields_for :tasting_terms do |term_field| %>
-or add your own term <%= term_field.text_field :term %> <br> <br>
-<% end %>
 <%= f.submit %>
 <% end %>
