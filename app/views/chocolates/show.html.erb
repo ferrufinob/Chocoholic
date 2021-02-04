@@ -5,6 +5,13 @@
 <% end %> <br>
 <p>additonal info: <%= @chocolate.note %></p>
 <p>Category: <%= @chocolate.category.name %></p>
+
+<ul>
+<% @chocolate.tasting_terms.each do |t| %>
+ <%= t.term %>
+ <% end %>
+</ul>
+ 
 <p>Added: <%= time_ago_in_words(@chocolate.created_at) %> ago</p>
 
  
