@@ -7,7 +7,7 @@ class Chocolate < ApplicationRecord
   validates :brand, presence: true
   validates :flavor, presence: true
   validates :flavor, uniqueness: { scope: :brand, message: " already exists for this brand" }
-  # scope :most_popular, -> { where("rating >= 4 ") }
+  scope :highest_rating, -> { joins(:reviews).select("*, avg(reviews.rating) as average_rating").group("chocolates.id").order("average_rating DESC") }
 
   def category_attributes=(attribute)
     if !attribute[:name].blank?

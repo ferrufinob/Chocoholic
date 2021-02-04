@@ -16,6 +16,10 @@ class ChocolatesController < ApplicationController
   def show
   end
 
+  def most_popular
+    @chocolates = Chocolate.highest_rating
+  end
+
   def new
     @chocolate = Chocolate.new
     @chocolate.build_category
