@@ -52,8 +52,6 @@ class ChocolatesController < ApplicationController
     params.require(:chocolate).permit(
       :brand,
       :flavor,
-      :cocoa,
-      :rating,
       :note,
       :image,
       :category_id,
