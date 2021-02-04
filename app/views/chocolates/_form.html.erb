@@ -11,9 +11,9 @@
 <%= f.label "Chocolate Image" %> <br>
 <%= f.file_field :image %> <br>
 <%= f.label :dairy_free, "Is this chocolate dairy free?" %>
-<%= f.select :dairy_free, [["No", false], ["Yes", true]] %> <br>
+<%= f.check_box :dairy_free %> <br>
 <%= f.label :nut_free, "Is this chocolate nut free" %>
-<%= f.select :nut_free, [["No", false], ["Yes", true]] %> <br>
+<%= f.check_box :nut_free %> <br>
 <%= f.label :note, "any additional information you'd like to share?" %> <br>
 <%= f.text_area :note, placeholder: "optional" %> <br>
 <%= f.label :category, "Choose a Category" %>

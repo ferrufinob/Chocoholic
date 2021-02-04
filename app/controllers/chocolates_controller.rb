@@ -1,5 +1,5 @@
 class ChocolatesController < ApplicationController
-  before_action :require_login
+  before_action :require_login, only: [:new, :edit, :update, :destory]
   before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
   before_action :authorized_to_edit, only: [:edit, :update, :destroy]
 
@@ -54,9 +54,9 @@ class ChocolatesController < ApplicationController
       :flavor,
       :note,
       :image,
-      :category_id,
       :dairy_free,
       :nut_free,
+      :category_id,
       category_attributes: [:name],
 
     )
