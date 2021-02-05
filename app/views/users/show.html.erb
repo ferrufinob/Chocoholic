@@ -1,10 +1,7 @@
 <p>Welcome <%= current_user.name %></p>
 My Chocolates:
-
-<ul>  
-<% current_user.chocolates.each do |chocolate| %>
-<li><%= link_to chocolate.flavor, chocolate_path(chocolate) %> - <%= chocolate.brand %></li>
-<% end %>
+<ul>
+  <% current_user.chocolates.each do |chocolate| %>
+    <li><%= link_to chocolate.flavor, chocolate_path(chocolate) %> - <%= chocolate.brand %></li>
+  <% end %>
 </ul>
-
-

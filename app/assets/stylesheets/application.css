@@ -14,3 +14,109 @@
  *= require_self
  */
 
+ /* Home Page */
+
+ * {
+     padding: 0;
+     margin: 0;
+ }
+
+ .wrapper {
+     background: url(chocohome-unsplash.jpg) no-repeat;
+     background-size: cover;
+     height: 100vh;
+ }
+ 
+ .navbar {
+     height: 80px;
+     width: 100%;
+     background: rgba(0,0,0, 0.7);
+     
+ }
+
+ .navbar ul{
+     float: right;
+     margin-right: 20px;
+ }
+
+
+ .navbar ul li {
+     list-style: none;
+     margin: 0 8px;
+     display: inline-block;
+     line-height: 80px;
+ }
+
+ .navbar ul li a {
+     text-decoration: none;
+     color: white;
+     font-size: 18px;
+     padding: 6px, 13px;
+     font-weight: bold;
+     font-family: sans-serif;
+ }
+
+ .navbar ul li a.active,
+ .navbar ul li a:hover {
+     background: rgba(0,0,0, 0.3) ;
+     border-radius: 2px ;
+ }
+
+ /* Homepage Center */
+
+ .wrapper .center{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     user-select: none;
+ }
+
+ .center{ 
+      background: rgba(0,0,0, 0.5) ;
+ }
+
+ .center h1{
+     color: white;
+     font-size: 70px;
+     font-weight: bold;
+     width: 900px;
+     text-align: center;
+     font-family: sans-serif;
+ } 
+
+ .center h2{
+     color: white;
+     font-size: 60px;
+     font-weight: bold;
+     width: 885px;
+     margin-top: 10px;
+     text-align: center;
+     font-family: sans-serif;
+ }
+
+ .center .buttons{
+     margin: 35px 200px;
+ }
+
+ .buttons button{
+     height: 50%;
+     width: 100%;
+     margin: 10px;
+     padding: 10px;
+     font-size: 25px ;
+     font-weight: bold;
+     background:  black;
+     border: 1px solid;
+     outline: none;
+     cursor: pointer;
+     border-radius: 25px;
+ }
+
+a:link, .btn a:visited, .btn a:hover, .btn a:active{ 
+    text-decoration:none; 
+    color: #ffb3b3 ;
+}
+
+
+ 

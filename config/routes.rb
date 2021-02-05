@@ -6,14 +6,16 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
-  get "chocolates/most_popular" => "chocolate/most_popular"
+
   resources :users, only: [:show, :new, :create]
 
   resources :reviews
-
+  # resources :chocolates
+  get "chocolates/most_popular" => "chocolates#most_popular"
   resources :chocolates do
     resources :reviews, only: [:index, :new, :create]
   end
+
   resources :categories, except: [:destroy] do
     resources :chocolates, shallow: true
   end

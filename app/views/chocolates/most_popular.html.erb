@@ -1,7 +1,11 @@
 <h3>Most Popular Chocolates</h3>
 
+<% if !logged_in? %>
+  <p>Log in or Sign up to explore even more</p>  
+<% end %>
+
  <ul> 
  <% @chocolates.each do |chocolate| %>
-  <li><%= link_to chocolate.flavor, chocolate_path(chocolate) %></li>
+  <li><%= link_to chocolate.flavor, chocolate %></li>
 <% end %>
  </ul>

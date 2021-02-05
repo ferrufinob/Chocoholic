@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   before_action :check_signed_in, only: [:new]
 
   def welcome
+    render :layout => "home_page"
   end
 
   def new

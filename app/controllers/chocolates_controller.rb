@@ -1,6 +1,6 @@
 class ChocolatesController < ApplicationController
-  before_action :require_login, only: [:new, :edit, :update, :destory]
-  before_action :set_chocolate, only: [:edit, :update, :show, :destroy]
+  before_action :require_login, only: [:edit, :update, :destory]
+  before_action :set_chocolate, only: [:show, :edit, :update, :destroy]
   before_action :authorized_to_edit, only: [:edit, :update, :destroy]
 
   def index
@@ -14,10 +14,6 @@ class ChocolatesController < ApplicationController
   end
 
   def show
-  end
-
-  def most_popular
-    @chocolates = Chocolate.highest_rating
   end
 
   def new
@@ -48,6 +44,10 @@ class ChocolatesController < ApplicationController
   def destroy
     @chocolate.destroy
     redirect_to chocolates_url, alert: "successfully deleted chocolate"
+  end
+
+  def most_popular
+    @chocolates = Chocolate.highest_rating.limit(5)
   end
 
   private
