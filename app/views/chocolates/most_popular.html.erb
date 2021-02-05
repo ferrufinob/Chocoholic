@@ -1,12 +1,9 @@
-<h3>Most Popular Chocolates</h3>
-
-<% if !logged_in? %>
-  <p>Log in or Sign up to explore even more</p>  
-<% end %>
-<div>
-  <ul>
+<h1 class="headers" >Most Popular Chocolates</h1>
+ 
+<div class="list-margin">
+  <ul class="unordered-list">
     <% @chocolates.each do |chocolate| %>
-      <li>
+      <li class="list">
         <% if chocolate.image.attached? %>
           <%= image_tag chocolate.image.variant(resize_to_limit: [100, 100]) %> <br><br>
         <% end %>

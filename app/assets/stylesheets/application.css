@@ -112,11 +112,11 @@
    height: 480px;
    margin: 6% auto;
    background: #fff;
-   padding: 25px;
+   padding: 80px;
  }
 
  .input-group{
-   top: 180px;
+   top: 250px;
    position: absolute;
    width: 280px;
  }
@@ -146,4 +146,41 @@
  .headers{
    text-align: center;
    font-size: 50px;
+ }
+
+ textarea{
+   width: 90%;
+ }
+
+  p{
+   font-size: 12px;
+   margin: 10px;
+ }
+
+ .list-font{
+   font-size: 14px;
+ }
+
+
+ /* list display */
+
+ .list{
+   counter-increment: index; 
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  box-sizing: border-box;
+ }
+
+ .unordered-list{
+  counter-reset: index;  
+  padding: 0;
+  max-width: 300px;
+ }
+ .list + .unordered-list{
+   border-top: 1px solid rgba(255,255,255,0.2);
+ }
+
+ .list-margin{
+  margin: 15px;
  }

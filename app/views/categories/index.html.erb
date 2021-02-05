@@ -1,9 +1,9 @@
 <br>
-<h1>Pick a Category</h1>
-<div class="choc_index_div">
-  <ul class="index_ul">
+<h1 class="headers">Pick a Category</h1>
+<div class="list-margin">
+  <ul class="unordered-lisr">
     <% @categories.each do |category| %>
-      <li class="index">
+      <li class="list">
         <h3><%= link_to category.name, category_chocolates_path(category) %></h3>
          <br>
         <br>
