@@ -1,7 +1,7 @@
 <h3>Brand: <%= @chocolate.brand %></h3>
 <h4>Flavor: <%= @chocolate.flavor %></h4> 
 <% if @chocolate.image.attached? %>
-<%= image_tag @chocolate.image.variant(resize: "500x500") %>
+<%= image_tag @chocolate.image.variant(resize_to_limit: [300, 300]) %>
 <% end %> <br>
 <p>additonal info: <%= @chocolate.note %></p>
 <p>Category: <%= @chocolate.category.name %></p>
@@ -40,3 +40,5 @@ Nut Free: <%= @chocolate.nut_free_yn %>
 
 
 <%= link_to "Delete", @chocolate, method: :delete, data: { confirm: "Are you sure?" } %>
+
+<%= link_to "Back", url_for(:back) %>

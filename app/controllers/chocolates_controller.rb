@@ -1,5 +1,5 @@
 class ChocolatesController < ApplicationController
-  before_action :require_login, only: [:edit, :update, :destory]
+  before_action :require_login, only: [:index, :edit, :update, :destory]
   before_action :set_chocolate, only: [:show, :edit, :update, :destroy]
   before_action :authorized_to_edit, only: [:edit, :update, :destroy]
 

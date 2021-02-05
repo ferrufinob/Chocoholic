@@ -15,6 +15,14 @@ class Chocolate < ApplicationRecord
     end
   end
 
+  def average_rating
+    if self.reviews.size > 0
+      self.reviews.average(:rating)
+    else
+      "undefined"
+    end
+  end
+
   def dairy_free_yn
     dairy_free ? "Yes" : "No"
   end
