@@ -1,25 +1,27 @@
 <%= @chocolate.errors.full_messages.first if @chocolate.errors.any? %>
-
-<%= form_for @chocolate do |f| %>
+<div>
+<%= form_for @chocolate, remote: true do |f| %>
 <%= f.label :brand %>
-<%= f.text_field :brand %> <br>
+<%= f.text_field :brand %> 
 <%= f.label :flavor %>
-<%= f.text_field :flavor %> <br>
-<%= f.label "Chocolate Image" %> <br>
-<%= f.file_field :image %> <br>
-<%= f.label :dairy_free, "Is this chocolate dairy free?" %>
-<%= f.check_box :dairy_free %> <br>
-<%= f.label :nut_free, "Is this chocolate nut free" %>
-<%= f.check_box :nut_free %> <br>
-<%= f.label :note, "any additional information you'd like to share?" %> <br>
-<%= f.text_area :note, placeholder: "optional" %> <br>
+<%= f.text_field :flavor %> 
+<%= f.label "Chocolate Image" %> 
+<%= f.file_field :image %> 
+<%= f.label :dairy_free, "dairy free" %>
+<%= f.check_box :dairy_free %> 
+<%= f.label :nut_free, "nut free" %>
+<%= f.check_box :nut_free %> 
+<%= f.label :note, "any additional information you'd like to share?" %>
+<%= f.text_area :note, placeholder: "optional" %> 
 
 <%= f.label :category, "Choose a Category" %>
-<%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %><br> 
+<%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %> <br><br>
  
 <%= f.fields_for :category do |cat_field| %>
-create your own if no match found<%= cat_field.text_field :name, placeholder: "add category name" %> <br>
+create your own if no match found<%= cat_field.text_field :name, placeholder: "add category name" %> 
 <% end %>
 
 <%= f.submit %>
 <% end %>
+
+</div>

@@ -3,9 +3,19 @@
 <% if !logged_in? %>
   <p>Log in or Sign up to explore even more</p>  
 <% end %>
-
- <ul> 
- <% @chocolates.each do |chocolate| %>
-  <li><%= link_to chocolate.flavor, chocolate %></li>
-<% end %>
- </ul>
+<div>
+  <ul>
+    <% @chocolates.each do |chocolate| %>
+      <li>
+        <% if chocolate.image.attached? %>
+          <%= image_tag chocolate.image.variant(resize_to_limit: [100, 100]) %> <br><br>
+        <% end %>
+        <h3><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
+        <p>by: <%= chocolate.brand %></p>
+         <br>
+        <br>
+        <hr>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -2,15 +2,20 @@
   <p>There are no reviews yet.</p>
 <% else %>
   <p>Reviews <%= @reviews.size %></p>
-  <% @reviews.each do |review| %>
-    <ul>
-      <%= time_ago_in_words(review.created_at) %> ago by <%= review.user.name %>
+<div class="records_div">
+  <ul class="records_ul">
+    <% @reviews.each do |review| %>
+      <li class="records_li">
+       <%= time_ago_in_words(review.created_at) %> ago by <%= review.user.name %>
       for <%= link_to review.chocolate.flavor, chocolate_path(review.chocolate) %> <br>
       <%= review.rating %> stars <br>
       <%= review.comment %> <br>
-      
         <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %>
-     
-    </ul>
+         <br>
+        <br>
+        <hr>
+      </li>
+    <% end %>
+  </ul>
   <% end %>
-<% end %>
+</div>

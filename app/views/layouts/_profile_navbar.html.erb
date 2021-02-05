@@ -1,14 +1,14 @@
-<nav class="navbar">
-  <ul>
-    <% if logged_in? %>
-      <li><a class="active"><%= link_to "Home", root_path %></a></li>
-      <li><a><%= link_to "#{current_user.name}'s Profile", user_path(current_user) %></a></li>
-      <li><a><%= link_to "New Chocolate", new_chocolate_path %></a></li>
-      <li><a><%= link_to "Logout", logout_path, method: :delete %></a></li>
-    <% else %>
-      <li><a class="active"><%= link_to "Home", root_path %></a></li>
-      <li><a><%= link_to "Sign Up", signup_path %></a></li>
-      <li><a><%= link_to "Login", login_path %></a></li>
+
+<div class="navbar">
+<ul>
+<% if logged_in? %>
+      <li><%= link_to "#{current_user.name}'s Profile", user_path(current_user) %></li>
+      <li><%= link_to "Most Popular", chocolates_most_popular_path %></li>
+      <li><%= link_to "All Chocolates", chocolates_path %></li>
+      <li><%= link_to "New Chocolate", new_chocolate_path %></li>
+      <li><%= link_to "Reviewed Chocolates", reviews_path %></li>
+      <li><%= link_to "Logout", logout_path, method: :delete %></li>
     <% end %>
-  </ul>
-</nav>
+</ul>
+</div>
+

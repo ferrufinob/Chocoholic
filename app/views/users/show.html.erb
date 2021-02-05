@@ -1,7 +1,17 @@
-<p>Welcome <%= current_user.name %></p>
-My Chocolates:
-<ul>
-  <% current_user.chocolates.each do |chocolate| %>
-    <li><%= link_to chocolate.flavor, chocolate_path(chocolate) %> - <%= chocolate.brand %></li>
-  <% end %>
-</ul>
+<h1>My Chocolates</h1>
+<div>
+  <ul>
+    <% current_user.chocolates.each do |chocolate| %>
+      <li>
+        <% if chocolate.image.attached? %>
+          <%= image_tag chocolate.image.variant(resize_to_limit: [100, 100]) %> <br><br>
+        <% end %>
+        <h3><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
+        <p>by: <%= chocolate.brand %></p>
+         <br>
+        <br>
+        <hr>
+      </li>
+    <% end %>
+  </ul>
+</div>

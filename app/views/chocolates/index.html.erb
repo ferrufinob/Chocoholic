@@ -1,8 +1,17 @@
-
-<h3>All Chocolates:</h3>
-<% @chocolates.each do |chocolate| %>
-  <ul>
-    <%= link_to chocolate.flavor, chocolate_path(chocolate) %> by: <%= chocolate.brand %>
+<h1>All Chocolates</h1>
+<div>
+  <ul class="records_ul">
+    <% @chocolates.each do |chocolate| %>
+      <li>
+        <% if chocolate.image.attached? %>
+          <%= image_tag chocolate.image.variant(resize_to_limit: [100, 100]) %> <br><br>
+        <% end %>
+        <h3><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
+        <p>by: <%= chocolate.brand %></p>
+         <br>
+        <br>
+      </li>
+    <% end %>
   </ul>
-<% end %>
+</div>
 

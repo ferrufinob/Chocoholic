@@ -1,6 +1,14 @@
-<h1>Category Index Page</h1>
-<% @categories.each do |category| %>
-  <ul>
-  <%= link_to category.name, category_chocolates_path(category) %> <br> <br>
+<br>
+<h1>Pick a Category</h1>
+<div class="choc_index_div">
+  <ul class="index_ul">
+    <% @categories.each do |category| %>
+      <li class="index">
+        <h3><%= link_to category.name, category_chocolates_path(category) %></h3>
+         <br>
+        <br>
+        <hr>
+      </li>
+    <% end %>
   </ul>
-<% end %>
+</div>
