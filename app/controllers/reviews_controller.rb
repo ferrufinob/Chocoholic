@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
     if params[:chocolate_id] && @chocolate = Chocolate.find_by_id(params[:chocolate_id])
       @reviews = @chocolate.reviews
     else
+      #better, uses only one query load as opposed to using includes
       @reviews = current_user.reviews
     end
   end

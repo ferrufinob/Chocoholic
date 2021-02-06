@@ -7,6 +7,8 @@ class Chocolate < ApplicationRecord
   validates :brand, presence: true
   validates :flavor, presence: true
   validates :flavor, uniqueness: { scope: :brand, message: " already exists for this brand" }
+  #left_outer_joins if you want to select a set of records whether or not they have associated records.
+  #return all chocolates with their average review rating from most to least, whether they have any reviews at all.
   scope :highest_rating, -> { left_outer_joins(:reviews).group("chocolates.id").order("avg(reviews.rating) DESC") }
 
   def category_attributes=(attribute)
@@ -16,11 +18,7 @@ class Chocolate < ApplicationRecord
   end
 
   def average_rating
-    if self.reviews.size > 0
-      self.reviews.average(:rating).to_i
-    else
-      "undefined"
-    end
+    self.reviews.average(:rating).to_i
   end
 
   def dairy_free_yn
