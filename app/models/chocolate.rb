@@ -17,6 +17,7 @@ class Chocolate < ApplicationRecord
     end
   end
 
+  #calculate the rating average to display in show page
   def average_rating
     self.reviews.average(:rating).to_i
   end

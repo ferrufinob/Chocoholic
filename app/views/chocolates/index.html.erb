@@ -1,16 +1,18 @@
 <h1 class="headers">All Chocolates</h1>
 <div class="list-margin">
-  <ul class="unordered-list">
+  
     <% @chocolates.each do |chocolate| %>
-      <li class="list">
+      
+      <div class="search">
         <% if chocolate.image.attached? %>
           <%= image_tag chocolate.image.variant(resize_to_limit: [80, 80]) %> 
         <% end %>
         <h3 class="list-font"><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>  
-        <p>by: <%= chocolate.brand %></p> 
-      </li>
+        <p>by: <%= chocolate.brand %></p>
+      
+      </div>
     <% end %>
-  </ul>
+
   </div>
   
 

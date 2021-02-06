@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
       redirect_to chocolates_path, alert: "Chocolate not found."
     else
       @chocolate = Chocolate.find_by_id(params[:chocolate_id])
-      @review = Review.new
+      @review = @chocolate.reviews.build
     end
   end
 

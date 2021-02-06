@@ -1,16 +1,12 @@
 <br>
 <h1 class="headers">Pick a Category</h1>
 <div class="list-margin">
-  <ul class="unordered-lisr">
+  <ul class="categories">
     <% @categories.each do |category| %>
       <li class="list">
         <h3><%= link_to category.name, category_chocolates_path(category) %></h3>
-         <br>
-        <br>
-        <hr>
       </li>
     <% end %>
   </ul>
 </div>
 
-<h4 class="back"><%= link_to "Back", url_for(:back) %></h4>
