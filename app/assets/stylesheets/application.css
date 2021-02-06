@@ -229,10 +229,7 @@
    margin-right: 15px;
    background-color: #f8f7ff;
    padding-bottom: 10px;
-   margin-top: 15px;
-
-  
-   
+   margin-top: 15px;   
  }
 
  .second a{
@@ -241,24 +238,25 @@
    margin: 10px;
  }
 
-.second ul{
+ .second ul{
   text-align: center;
   font-size: 12px;
-}
+ }
 
-.second h3{
+ .second h3{
   text-align: center;
-}
+ }
 
-.list .only-reviews{
+ .list .only-reviews{
   text-align: center;
-}
+ }
 
-.only-reviews{
+ .only-reviews{
   font-size: 10px;
-}
+ }
 
-a{
+ a{
   color:#fb7381;
-}
+ }
+
 

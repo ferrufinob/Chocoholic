@@ -8,6 +8,8 @@ class ChocolatesController < ApplicationController
     if params[:category_id] && @category = Category.find_by_id(params[:category_id])
       #show all the chocolates that are a part of the category
       @chocolates = @category.chocolates
+    elsif params[:search]
+      @chocolates = Chocolate.where("flavor LIKE ? OR brand LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
     else
       @chocolates = Chocolate.all
     end
