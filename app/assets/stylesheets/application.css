@@ -23,14 +23,10 @@
      font-family: 'Dosis', sans-serif;
  }
 
- body{
-   background-color: #faf4ef;
- }
 
  .hero{
    width: 80%;
    margin: auto;
-
  }
 
  .navbar{
@@ -107,11 +103,19 @@
 
 /* Forms */
 
+ .signup-login-review{
+   width: 300px;
+   height: 300px;
+   margin: 6% auto;
+   background-color: #f8f7ff;
+   padding: 80px;
+ }
+
  .form-box{
    width: 380px;
    height: 480px;
    margin: 6% auto;
-   background: #fff;
+   background-color: #f8f7ff;
    padding: 80px;
  }
 
@@ -145,7 +149,7 @@
  
  .headers{
    text-align: center;
-   font-size: 50px;
+   font-size: 40px;
  }
 
  textarea{
@@ -153,7 +157,7 @@
  }
 
   p{
-   font-size: 12px;
+   font-size: 18px;
    margin: 8px;
    /* font-weight: bold; */
  }
@@ -165,7 +169,7 @@
  .back a{
    font-size: 20px;
    text-decoration: none;
-   color: #fb7381;
+   color: black;
  }
 
  .back{
@@ -222,14 +226,14 @@
    width: 400px;
    margin-right: 15px;
    background-color: #f8f7ff;
+   padding-bottom: 10px;
   
    
  }
 
  .second a{
-   font-size: 12px;
+   font-size: 14px;
    text-decoration: none;
-   color:#fb7381;
    margin: 10px;
  }
 
@@ -246,4 +250,11 @@
   text-align: center;
 }
 
+.only-reviews{
+  font-size: 10px;
+}
+
+a{
+  color:#fb7381;
+}
 

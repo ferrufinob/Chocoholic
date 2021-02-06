@@ -1,6 +1,7 @@
 <h1 class="headers">Sign Up </h1>
-<div class="form-box">
+<div class="signup-login-review">
 <%= form_for @user do |f| %>
+<div class="input-group">
 <%= f.label :name %>
 <%= f.text_field :name %> <br>
 <%= f.label :email %>
@@ -9,4 +10,5 @@
 <%= f.password_field :password %><br>
 <%= f.submit "Create Account", class: "submit-btn" %>
 <% end %>
+</div>
 </div>

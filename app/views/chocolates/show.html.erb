@@ -23,12 +23,12 @@
     <% if @chocolate.reviews.blank? %>
       <p>there are no reviews yet.</p>
     <% else %>
-      <p>Average Rating:</p>
+      <p>Average Rating: <%= @chocolate.average_rating %>/5</p>
       <ul>
         <% @chocolate.reviews.limit(5).each do |review| %>
           <%= render partial: "reviews/reviews", locals: { review: review } %>
-          <%= link_to "View all", chocolate_reviews_path(@chocolate) %>
         <% end %>
+        <%= link_to "View all", chocolate_reviews_path(@chocolate) %>
       </ul>
     <% end %>
   </div>
