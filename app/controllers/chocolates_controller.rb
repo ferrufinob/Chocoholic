@@ -62,7 +62,6 @@ class ChocolatesController < ApplicationController
       :nut_free,
       :category_id,
       category_attributes: [:name],
-
     )
   end
 

@@ -4,7 +4,7 @@
     <% @chocolates.each do |chocolate| %>
       <li class="list">
         <% if chocolate.image.attached? %>
-          <%= image_tag chocolate.image.variant(resize_to_limit: [100, 100]) %> 
+          <%= image_tag chocolate.image.variant(resize_to_limit: [80, 80]) %> 
         <% end %>
         <h3 class="list-font"><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>  
         <p>by: <%= chocolate.brand %></p> 

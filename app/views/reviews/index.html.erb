@@ -4,10 +4,10 @@
   <p>Reviews <%= @reviews.size %></p>
     <ul class="unordered-list">
       <% @reviews.each do |review| %>
-        <li class="list" class="only-reviews">
+        <li class="list" class="only-reviews"> 
           <%= render partial: "reviews", locals: { review: review } %>
-           <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %> <br>
-           <%= link_to "Edit", edit_review_path(review) %>
+           <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %> 
+           <%= link_to "Edit", edit_review_path(review) %> 
         </li>
         <hr>
       <% end %>

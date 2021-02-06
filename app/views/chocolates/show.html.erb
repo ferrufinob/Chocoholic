@@ -1,34 +1,36 @@
 <h1 class="headers">Flavor: <%= @chocolate.flavor %></h1>
 <div class="wrapper">
-<div class="first">
-<h3>Brand: <%= @chocolate.brand %></h3>
-<h3>Category: <%= @chocolate.category.name %></h3>
-<% if @chocolate.image.attached? %>
-  <%= image_tag @chocolate.image.variant(resize_to_limit: [300, 300]) %>
-<% end %>
-<h4>additonal info: <%= @chocolate.note %></h4>
-<h4>Dairy Free: <%= @chocolate.dairy_free_yn %></h4>
-<h4>Nut Free: <%= @chocolate.nut_free_yn %></h4>
-<% if current_user %>
-<%= link_to "Edit", edit_chocolate_path(@chocolate) %>
-<%= link_to "Delete", @chocolate, method: :delete, data: { confirm: "Are you sure?" } %> <br>
-<% end %>
-<p>Added: <%= time_ago_in_words(@chocolate.created_at) %> ago</p> 
-</div>
-<div class="second">
-<h3><%= link_to "Write a review", new_chocolate_review_path(@chocolate) %></h3>
-<% if @chocolate.reviews.blank? %>
-  <p>there are no reviews yet.</p>
-<% else %>
-  <p>Average Rating:</p>
-  <ul>
-    <% @chocolate.reviews.limit(5).each do |review| %>
-      <%= render partial: "reviews/reviews", locals: { review: review } %>
-      <%= link_to "View all", chocolate_reviews_path(@chocolate) %>
+  <div class="first">
+ 
+    <h3>Brand: <%= @chocolate.brand %></h3>
+    <h3>Category: <%= @chocolate.category.name %></h3>
+    <% if @chocolate.image.attached? %>
+      <%= image_tag @chocolate.image.variant(resize_to_limit: [300, 300]) %>
     <% end %>
-  </ul>
-<% end %>
+    <h4>additonal info: <%= @chocolate.note %></h4>
+    <h4>Dairy Free: <%= @chocolate.dairy_free_yn %></h4>
+    <h4>Nut Free: <%= @chocolate.nut_free_yn %></h4>
+    
+    <% if current_user %>
+      <%= link_to "Edit", edit_chocolate_path(@chocolate) %>
+      <%= link_to "Delete", @chocolate, method: :delete, data: { confirm: "Are you sure?" } %> <br>
+    <% end %>
+    <p>Added: <%= time_ago_in_words(@chocolate.created_at) %> ago</p>
+  </div>
+  <div class="second">
+  
+    <h3><%= link_to "Write a review", new_chocolate_review_path(@chocolate) %></h3>
+    <% if @chocolate.reviews.blank? %>
+      <p>there are no reviews yet.</p>
+    <% else %>
+      <p>Average Rating:</p>
+      <ul>
+        <% @chocolate.reviews.limit(5).each do |review| %>
+          <%= render partial: "reviews/reviews", locals: { review: review } %>
+          <%= link_to "View all", chocolate_reviews_path(@chocolate) %>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
-</div>
-
 <h4 class="back"><%= link_to "Back", url_for(:back) %></h4>
