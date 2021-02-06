@@ -24,7 +24,7 @@
  }
 
  body{
-   background-color: #F5F5F5;
+   background-color: #fbfefb;
  }
 
  .hero{
@@ -154,28 +154,46 @@
 
   p{
    font-size: 12px;
-   margin: 10px;
+   margin: 8px;
+   /* font-weight: bold; */
  }
 
  .list-font{
    font-size: 14px;
  }
 
+ .back a{
+   font-size: 20px;
+   text-decoration: none;
+   color: #fb7381;
+ }
+
+ .back{
+   text-align: left;
+   margin-left: 20px;
+   margin-bottom: 30px;
+ }
 
  /* list display */
 
  .list{
-   counter-increment: index; 
+   /* counter-increment: index;  */
   display: flex;
   align-items: center;
-  padding: 12px 0;
+  padding: 20px 0;
   box-sizing: border-box;
+ }
+
+ .list a{
+   font-size: 20px;
+   text-decoration: none;
+   color:#fb7381;
  }
 
  .unordered-list{
   counter-reset: index;  
   padding: 0;
-  max-width: 300px;
+  max-width: 600px;
  }
  .list + .unordered-list{
    border-top: 1px solid rgba(255,255,255,0.2);
@@ -184,3 +202,48 @@
  .list-margin{
   margin: 15px;
  }
+
+/* chocolate show page */
+ .wrapper{
+   /* border: 1px solid black; */
+   display: flex;
+   flex-direction: row;
+ }
+
+ .first{
+   /* border: 1px solid; */
+   width: 500px;
+   text-align: center;
+    margin-right: 10px;
+ }
+
+ .second{
+   /* border: 1px solid; */
+   width: 400px;
+   margin-right: 15px;
+   background-color: #edede8;
+  
+   
+ }
+
+ .second a{
+   font-size: 12px;
+   text-decoration: none;
+   color:#fb7381;
+   margin: 10px;
+ }
+
+.second ul{
+  text-align: center;
+  font-size: 12px;
+}
+
+.second h3{
+  text-align: center;
+}
+
+.list .only-reviews{
+  text-align: center;
+}
+
+

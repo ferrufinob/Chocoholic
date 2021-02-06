@@ -1,0 +1,3 @@
+<p><%= time_ago_in_words(review.created_at) %> ago by <%= review.user.name %> for<%= link_to review.chocolate.flavor, chocolate_path(review.chocolate) %></p> 
+<p><%= review.rating %> stars</p>
+<h3><%= review.comment %> </h3> <br>

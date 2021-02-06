@@ -1,6 +1,6 @@
 <h1 class="headers">My Chocolates</h1>
 <div class="list-margin">
-  <ul class="unordered-list">
+  <ul class="unordered-list collapsibleList">
     <% current_user.chocolates.each do |chocolate| %>
       <li class="list">
         <% if chocolate.image.attached? %>

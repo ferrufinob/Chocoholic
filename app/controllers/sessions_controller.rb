@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :check_signed_in, only: [:new]
+  before_action :check_signed_in, only: [:welcome, :new]
 
   def welcome
   end
