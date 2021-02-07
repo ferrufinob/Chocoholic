@@ -7,6 +7,7 @@ class Chocolate < ApplicationRecord
   validates :brand, presence: true
   validates :flavor, presence: true
   validates :flavor, uniqueness: { scope: :brand, message: " already exists for this brand" }
+  validate :acceptable_image
   #left_outer_joins if you want to select a set of records whether or not they have associated records.
   #return all chocolates with their average review rating from most to least, whether they have any reviews at all.
   scope :highest_rating, -> { left_outer_joins(:reviews).group("chocolates.id").order("avg(reviews.rating) DESC") }
@@ -33,6 +34,15 @@ class Chocolate < ApplicationRecord
   def self.search(search)
     if search
       self.where("flavor LIKE ? OR brand LIKE ?", "%#{search}%", "%#{search}%")
+    end
+  end
+
+  #webp images keep breaking my app
+  def acceptable_image
+    return unless image.attached?
+    acceptable_types = ["image/jpeg", "image/png"]
+    unless acceptable_types.include?(image.content_type)
+      errors.add(:image, "must be a JPEG or PNG")
     end
   end
 end

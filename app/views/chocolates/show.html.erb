@@ -26,7 +26,7 @@
       <p>Reviews: <%= @chocolate.reviews.count %></p>
       <p>Average Rating: <%= @chocolate.average_rating %>/5</p>
       <ul>
-        <% @chocolate.reviews.limit(5).each do |review| %>
+        <% @chocolate.reviews.by_created_at.limit(5).each do |review| %>
           <%= render partial: "reviews/reviews", locals: { review: review } %>
         <% end %>
         <%= link_to "View all", chocolate_reviews_path(@chocolate) %>

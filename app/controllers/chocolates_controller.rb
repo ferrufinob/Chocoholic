@@ -8,9 +8,9 @@ class ChocolatesController < ApplicationController
     #checking if nested and if we can find that chocolate
     if params[:category_id] && @category = Category.find_by_id(params[:category_id])
       #show all the chocolates that are a part of the category
-      @chocolates = @category.chocolates
+      @chocolates = @category.chocolates.with_attached_image
     elsif params[:search]
-      @chocolates = Chocolate.search(params[:search])
+      @chocolates = Chocolate.search(params[:search]).with_attached_image
     else
       @chocolates = Chocolate.all.with_attached_image
     end

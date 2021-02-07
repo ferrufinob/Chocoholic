@@ -5,10 +5,10 @@ class ReviewsController < ApplicationController
 
   def index
     if params[:chocolate_id] && @chocolate = Chocolate.find_by_id(params[:chocolate_id])
-      @reviews = @chocolate.reviews
+      @reviews = @chocolate.reviews.by_created_at
     else
       #better, uses only one query load as opposed to using includes
-      @reviews = current_user.reviews
+      @reviews = current_user.reviews.by_created_at
     end
   end
 
