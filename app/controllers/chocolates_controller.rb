@@ -55,7 +55,7 @@ class ChocolatesController < ApplicationController
   end
 
   def most_popular
-    @chocolates = Chocolate.highest_rating.limit(5)
+    @chocolates = Chocolate.highest_rating.limit(5).with_attached_image
   end
 
   private

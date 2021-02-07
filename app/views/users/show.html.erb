@@ -1,7 +1,7 @@
 <h1 class="headers">My Chocolates</h1>
 <div class="list-margin">
   <ul class="unordered-list collapsibleList">
-    <% current_user.chocolates.each do |chocolate| %>
+    <% @chocolates.each do |chocolate| %>
       <li class="list">
         <% if chocolate.image.attached? %>
           <%= image_tag chocolate.image.variant(resize_to_limit: [80, 80]) %> <br><br>
