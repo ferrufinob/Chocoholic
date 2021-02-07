@@ -5,11 +5,11 @@
     <h3>Brand: <%= @chocolate.brand %></h3>
     <h3>Category: <%= @chocolate.category.name %></h3>
     <% if @chocolate.image.attached? %>
-      <%= image_tag @chocolate.image.variant(resize_to_limit: [300, 300]) %>
+      <%= image_tag @chocolate.image.variant(resize_to_limit: [350, 350]) %>
     <% end %>
-    <h4>additonal info: <%= @chocolate.note %></h4>
-    <h4>Dairy Free: <%= @chocolate.dairy_free_yn %></h4>
-    <h4>Nut Free: <%= @chocolate.nut_free_yn %></h4>
+    <h4>additonal info: <%= @chocolate.note %></h4> <br>
+    <h4>Dairy Free: <%= @chocolate.dairy_free_yn %></h4> <br>
+    <h4>Nut Free: <%= @chocolate.nut_free_yn %></h4> <br>
     
     <% if current_user %>
       <%= link_to "Edit", edit_chocolate_path(@chocolate) %>
@@ -23,6 +23,7 @@
     <% if @chocolate.reviews.blank? %>
       <p>there are no reviews yet.</p>
     <% else %>
+      <p>Reviews: <%= @chocolate.reviews.count %></p>
       <p>Average Rating: <%= @chocolate.average_rating %>/5</p>
       <ul>
         <% @chocolate.reviews.limit(5).each do |review| %>

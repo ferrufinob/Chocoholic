@@ -38,6 +38,7 @@
  ul{
    flex: 1;
    text-align: right;
+   margin: 10px;
  }
 
  ul li{
@@ -49,7 +50,7 @@
  ul li a{
    text-decoration: none;
    color: black;
-   padding: 0 10px;
+   padding: 0 5px;
    /* position: relative; */
  }
 
@@ -178,6 +179,10 @@
    margin-bottom: 30px;
  }
 
+ .h4{
+   line-height: 200;
+ }
+
  /* list display */
 
  .list{
@@ -202,7 +207,7 @@
   padding: 20px 0;
   float: left;
   /* box-sizing: border-box; */
-  margin: 70px;
+  margin: 40px;
  }
 
 /* chocolate show page */
@@ -223,7 +228,7 @@
 
  .second{
    /* border: 1px solid; */
-   width: 400px;
+   width: 500px;
    margin-right: 15px;
    background-color: #f8f7ff;
    padding-bottom: 10px;
@@ -255,6 +260,7 @@
 
  a{
   color:#fb7381;
+  margin: 2px;
  }
 
 /* search bar */
@@ -268,7 +274,7 @@
    height: 1px;
    border: 1px solid black;
    background-color: #f8f7ff;
-   margin-left: 30px;
+   margin-left: 25px;
  }
 
  .input-field{

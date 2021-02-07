@@ -1,5 +1,5 @@
 class ChocolatesController < ApplicationController
-  before_action :require_login, only: [:index, :edit, :update, :destory]
+  before_action :require_login
   before_action :set_chocolate, only: [:show, :edit, :update, :destroy]
   before_action :authorized_to_edit, only: [:edit, :update, :destroy]
 
@@ -9,9 +9,10 @@ class ChocolatesController < ApplicationController
       #show all the chocolates that are a part of the category
       @chocolates = @category.chocolates
     elsif params[:search]
-      @chocolates = Chocolate.where("flavor LIKE ? OR brand LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+      @chocolates = Chocolate.where("flavor LIKE ? OR brand LIKE ? OR note LIKE?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
     else
-      @chocolates = Chocolate.all
+      #less query loads, avoid N+1
+      @chocolates = Chocolate.all.with_attached_image
     end
   end
 
@@ -25,7 +26,9 @@ class ChocolatesController < ApplicationController
 
   def create
     @chocolate = current_user.chocolates.build(chocolate_params)
+    #fixes the question mark issue
     if @chocolate.save
+      @chocolate.image.attach(params[:chocolate][:image])
       redirect_to chocolate_path(@chocolate)
     else
       render :new
@@ -36,6 +39,9 @@ class ChocolatesController < ApplicationController
   end
 
   def update
+    #delete old image if they update, must be done before the save
+    @chocolate.image.purge_later
+    @chocolate.image.attach(params[:chocolate][:image])
     if @chocolate.update(chocolate_params)
       redirect_to chocolate_path(@chocolate)
     else

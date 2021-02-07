@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
   before_action :require_login
   before_action :set_review, only: [:edit, :update, :show, :destroy]
   before_action :authorized_to_edit, only: [:edit, :update]
-  # before_action :find_chocolate, except: [:index, :show]
 
   def index
     if params[:chocolate_id] && @chocolate = Chocolate.find_by_id(params[:chocolate_id])
@@ -21,7 +20,7 @@ class ReviewsController < ApplicationController
       redirect_to chocolates_path, alert: "Chocolate not found."
     else
       @chocolate = Chocolate.find_by_id(params[:chocolate_id])
-      @review = @chocolate.reviews.build
+      @review = Review.new
     end
   end
 
@@ -71,8 +70,4 @@ class ReviewsController < ApplicationController
       redirect_to chocolates_path, alert: "Action not authorized."
     end
   end
-
-  # def find_chocolate
-  #   @chocolate = Chocolate.find_by_id(params[:chocolate_id])
-  # end
 end
