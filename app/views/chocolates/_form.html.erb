@@ -1,7 +1,7 @@
 <%= @chocolate.errors.full_messages.first if @chocolate.errors.any? %>
 <div class="form-box">
 <div class="input-group">
-<%= form_for @chocolate do |f| %>
+<%= form_for ([@category, @chocolate]) do |f| %>
 <%= f.label :brand %>
 <%= f.text_field :brand %> 
 <%= f.label :flavor %>
@@ -15,13 +15,13 @@
 <%= f.label :note, "any additional information you'd like to share?" %>
 <%= f.text_area :note, placeholder: "optional", rows: 5 %> 
 
+<% unless @category %>
 <%= f.label :category, "Choose a Category" %>
 <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %> <br><br>
- 
 <%= f.fields_for :category do |cat_field| %>
 create your own if no match found<%= cat_field.text_field :name, placeholder: "add category name" %> 
 <% end %>
-
+<% end %>
 <%= f.submit "Submit", class: "submit-btn" %>
 <% end %>
 

@@ -2,6 +2,7 @@ class ChocolatesController < ApplicationController
   before_action :require_login
   before_action :set_chocolate, only: [:show, :edit, :update, :destroy]
   before_action :authorized_to_edit, only: [:edit, :update, :destroy]
+  before_action :find_category, only: [:new, :create]
 
   def index
     #checking if nested and if we can find that chocolate
@@ -20,13 +21,21 @@ class ChocolatesController < ApplicationController
   end
 
   def new
-    @chocolate = Chocolate.new
-    @chocolate.build_category
+    if @category
+      @chocolate = @category.chocolates.build
+    else
+      @chocolate = Chocolate.new
+      @chocolate.build_category
+    end
   end
 
   def create
-    @chocolate = current_user.chocolates.build(chocolate_params)
-    #fixes the question mark issue
+    if @category
+      @chocolate = @category.chocolates.build(chocolate_params)
+      @chocolate.user = current_user
+    else
+      @chocolate = current_user.chocolates.build(chocolate_params)
+    end
     if @chocolate.save
       @chocolate.image.attach(params[:chocolate][:image])
       redirect_to chocolate_path(@chocolate)
@@ -83,5 +92,9 @@ class ChocolatesController < ApplicationController
     if current_user != @chocolate.user
       redirect_to chocolates_path, alert: "Action not authorized."
     end
+  end
+
+  def find_category
+    @category = Category.find_by_id(params[:category_id])
   end
 end

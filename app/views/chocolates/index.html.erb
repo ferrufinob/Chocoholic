@@ -13,6 +13,8 @@
       </div>
     <% end %>
 
-
+<% if @category %>
+<%= link_to "Add New Chocolate to Category", new_category_chocolate_path(@category) %>  
+<% end %>
   
 
