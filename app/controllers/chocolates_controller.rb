@@ -10,9 +10,8 @@ class ChocolatesController < ApplicationController
       #show all the chocolates that are a part of the category
       @chocolates = @category.chocolates
     elsif params[:search]
-      @chocolates = Chocolate.where("flavor LIKE ? OR brand LIKE ? OR note LIKE?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+      @chocolates = Chocolate.search(params[:search])
     else
-      #less query loads, avoid N+1
       @chocolates = Chocolate.all.with_attached_image
     end
   end
@@ -30,6 +29,7 @@ class ChocolatesController < ApplicationController
   end
 
   def create
+    #create if a category is present
     if @category
       @chocolate = @category.chocolates.build(chocolate_params)
       @chocolate.user = current_user

@@ -30,11 +30,9 @@ class Chocolate < ApplicationRecord
     nut_free ? "Yes" : "No"
   end
 
-  # def self.search(search)
-  #   if search
-  #     self.where("flavor LIKE ? OR brand LIKE ?", "%#{search}%", "%#{search}%")
-  #   else
-  #     self.all
-  #   end
-  # end
+  def self.search(search)
+    if search
+      self.where("flavor LIKE ? OR brand LIKE ?", "%#{search}%", "%#{search}%")
+    end
+  end
 end

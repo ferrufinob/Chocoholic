@@ -1,4 +1,7 @@
 <h1 class="headers">All Chocolates</h1>
+<% if @category %>
+<p><%= link_to "Add New Chocolate to #{@category.name}", new_category_chocolate_path(@category) %> </p>
+<% end %>
 
   
     <% @chocolates.each do |chocolate| %>
@@ -13,8 +16,6 @@
       </div>
     <% end %>
 
-<% if @category %>
-<%= link_to "Add New Chocolate to Category", new_category_chocolate_path(@category) %>  
-<% end %>
+
   
 

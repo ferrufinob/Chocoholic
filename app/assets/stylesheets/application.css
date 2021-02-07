@@ -157,9 +157,9 @@
    width: 90%;
  }
 
-  p{
+  p {
    font-size: 18px;
-   margin: 8px;
+   margin: 9px;
    /* font-weight: bold; */
  }
 
@@ -261,6 +261,7 @@
  a{
   color:#fb7381;
   margin: 2px;
+  text-decoration: none;
  }
 
 /* search bar */

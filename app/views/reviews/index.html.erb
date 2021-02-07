@@ -2,6 +2,7 @@
   <p>There are no reviews yet.</p>
 <% else %>
     <ul class="unordered-list">
+    <%= @reviews.by_created_at %>
       <% @reviews.each do |review| %>
         <li class="list" class="only-reviews"> 
           <%= render partial: "reviews", locals: { review: review } %>
