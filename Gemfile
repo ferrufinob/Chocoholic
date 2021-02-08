@@ -30,6 +30,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "font-awesome-rails"
 gem "omniauth"
 gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
 gem "dotenv-rails"
 
 group :development, :test do

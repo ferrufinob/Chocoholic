@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
-
+  get "/auth/google_oauth2/callback", to: "sessions#google"
   resources :users, only: [:show, :new, :create]
 
   resources :reviews

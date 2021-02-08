@@ -7,6 +7,16 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def google
+    user = User.from_omniauth(auth)
+    if user.valid?
+      session[:user_id] = user.id
+      redirect_to user_path(user)
+    else
+      redirect_to login_path
+    end
+  end
+
   def create
     user = User.find_by(email: params[:user][:email])
     if user && user.authenticate(params[:user][:password])
@@ -21,5 +31,11 @@ class SessionsController < ApplicationController
     #delete the saved user_id key/value from the cookie
     session.delete(:user_id)
     redirect_to login_path, alert: "Successfully Signed Out"
+  end
+
+  private
+
+  def auth
+    request.env["omniauth.auth"]
   end
 end

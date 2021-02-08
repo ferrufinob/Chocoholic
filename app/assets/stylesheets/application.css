@@ -301,20 +301,13 @@
    font-size: 12px;
  }
  
- /* FB button */
+ .btn .google-button{ 
+  margin-left: 34px;
+  margin-top: 12px;
+  border: 1px solid blue;
+}
 
- .fb-button{
-   padding: 7px 30px;
-   margin-top: 8px;
-   margin-left: 20px;
-   font-size: 15px;
-   font-weight: bold;
-   width: 85%;
-   border-radius: 20px;
-   border: 1px solid;
-   outline: none;
-   color: #fb7381;
- }
-
-
+.google-button a{
+  color: yellow;
+}
 
