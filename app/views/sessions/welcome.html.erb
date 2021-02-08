@@ -1,18 +1,16 @@
 <div class="hero">
-<div class="banner">
-<div class="left-column">
-<h1>Welcome to Chocoholics</h1>
-<h3>Discover New Chocolates</h3>
-<div class="btn">
- <button><%= link_to "Sign up", signup_path %></button>
- <button><%= link_to "Log in", login_path %> </button> <br>
- <button class="google-button"><%= fa_icon "google", :style => "color:green" %><%= link_to "Google Login", "/auth/google_oauth2", method: "post" %> </button>
-</div>
-</div>
-
-<div class="right-column">
-<%= image_tag("chocolate-unsplash.jpg", alt: "chocolates") %> <br>
-<span>Photo by <a href="https://unsplash.com/@foodess?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Food Photographer | Jennifer Pallian</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-</div>
-</div>
+  <div class="banner">
+    <div class="left-column">
+      <h1>Welcome to Chocoholics</h1>
+      <h3>Discover New Chocolates</h3>
+      <div class="btn">
+        <button><%= link_to "Sign up", signup_path %></button>
+        <button><%= link_to "Log in", login_path %> </button> <br>
+      </div>
+    </div>
+    <div class="right-column">
+      <%= image_tag("chocolate-unsplash.jpg", alt: "chocolates") %> <br>
+      <span>Photo by <a href="https://unsplash.com/@foodess?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Food Photographer | Jennifer Pallian</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+    </div>
+  </div>
 </div>

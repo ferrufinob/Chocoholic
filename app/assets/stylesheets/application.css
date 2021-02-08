@@ -232,7 +232,8 @@
    margin-right: 15px;
    background-color: #f8f7ff;
    padding-bottom: 10px;
-   margin-top: 15px;   
+   margin-top: 15px;  
+   text-align: center; 
  }
 
  .second a{
@@ -259,7 +260,7 @@
  }
 
  a{
-  color:#fb7381;
+  color:black;
   margin: 2px;
   text-decoration: none;
  }
@@ -301,16 +302,6 @@
    font-size: 12px;
  }
  
- .btn .google-button{ 
-  margin-left: 34px;
-  margin-top: 12px;
-  border: 1px solid blue;
-}
-
-.google-button a{
-  color: yellow;
-}
-
  #error_explanation ul{
    color: red;
    text-align: center;
@@ -337,9 +328,9 @@
 }
  .flash{
    text-align: center;
-   background-color: red;
+  font-size: 20px;
+  color: red;
    margin: 20px;
  }
- 
  
 

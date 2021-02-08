@@ -22,4 +22,4 @@ Contributions are welcome, just submit a pull request.
 
 ## License
 
-<https://github.com/ferrufinob/Chocoholic/blob/f96182576e6117e38f63f7f9b2cea5a07d2c0ab2/LICENSE>
+[MIT](https://github.com/ferrufinob/Chocoholic/blob/f96182576e6117e38f63f7f9b2cea5a07d2c0ab2/LICENSE)

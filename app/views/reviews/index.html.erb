@@ -1,16 +1,13 @@
 <% if @reviews.blank? %>
   <p>There are no reviews yet.</p>
 <% else %>
-    <ul class="unordered-list">
-      <% @reviews.each do |review| %>
-        <li class="list" class="only-reviews"> 
-          <%= render partial: "reviews", locals: { review: review } %>
-        </li>
-        <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %> 
-        <%= link_to "Edit", edit_review_path(review) %> 
-        <hr>
-      <% end %>
-    </ul>
-  <% end %>
+  <ul class="unordered-list">
+    <% @reviews.each do |review| %>
+      <li class="list" class="only-reviews">
+        <%= render partial: "reviews", locals: { review: review } %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 </div>
 <h4 class="back"><%= link_to "Back", url_for(:back) %></h4>

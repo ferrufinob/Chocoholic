@@ -1,11 +1,11 @@
 <h1 class="headers" >Most Popular Chocolates</h1>
- 
 <div class="list-margin">
   <ul class="unordered-list">
     <% @chocolates.each do |chocolate| %>
       <li class="list">
         <% if chocolate.image.attached? %>
-          <%= image_tag chocolate.image.variant(resize_to_limit: [80, 80]) %> <br><br>
+          <%= image_tag chocolate.image.variant(resize_to_limit: [80, 80]) %> <br>
+          <br>
         <% end %>
         <h3><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
         <p>by: <%= chocolate.brand %></p>
@@ -13,4 +13,3 @@
     <% end %>
   </ul>
 </div>
-

@@ -1,18 +1,14 @@
-<p><%= flash[:message] if flash[:message] %></p>
-  
 <h1 class="headers">Log in</h1>
-
-
 <div class="signup-login-review">
-<p>Don't have an account?<%= link_to "sign up", signup_path %></p>
-<%= form_for :user do |f| %>
-<div class="input-group">
-<%= f.label :email %>
-<%= f.email_field :email %> <br>
-<%= f.label :password %>
-<%= f.password_field :password %> <br>
-<%= f.submit "Log in", class: "submit-btn" %>
+  <p>Don't have an account?<%= link_to "sign up", signup_path %></p>
+  <%= form_for :user do |f| %>
+    <div class="input-group">
+      <%= f.label :email %>
+      <%= f.email_field :email %> <br>
+      <%= f.label :password %>
+      <%= f.password_field :password %> <br>
+      <%= f.submit "Log in", class: "submit-btn" %>
+      <p><%= link_to "Sign in with Google", "/auth/google_oauth2", method: "post" %></p>
+    </div>
+  <% end %>
 </div>
-<% end %> 
-</div>
-  
