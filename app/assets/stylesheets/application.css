@@ -311,3 +311,30 @@
   color: yellow;
 }
 
+ #error_explanation ul{
+   color: red;
+   text-align: center;
+ }
+
+ #error_explanation{
+   margin-top: 10px;
+   text-align: center;
+   color: red;
+ }
+
+ .field_with_errors input{
+  display: inline;
+  padding: 2px;
+  /* background-color: red; */
+  border: 3px solid red;
+}
+
+.field_with_errors textarea{
+  display: inline;
+  padding: 2px;
+  /* background-color: red; */
+    border: 3px solid red;
+}
+ 
+ 
+
