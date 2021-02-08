@@ -8,7 +8,6 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  #find or create a user using attributes auth
   def self.from_omniauth(auth)
     User.find_or_create_by(uid: auth[:iud], provider: auth["provider"]) do |u|
       u.name = auth[:info][:name]

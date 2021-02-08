@@ -5,9 +5,7 @@ class ChocolatesController < ApplicationController
   before_action :find_category, only: [:new, :create]
 
   def index
-    #checking if nested and if we can find that chocolate
     if params[:category_id] && @category = Category.find_by_id(params[:category_id])
-      #show all the chocolates that are a part of the category
       @chocolates = @category.chocolates.with_attached_image
     elsif params[:search]
       @chocolates = Chocolate.search(params[:search]).with_attached_image
@@ -29,7 +27,6 @@ class ChocolatesController < ApplicationController
   end
 
   def create
-    #create if a category is present
     if @category
       @chocolate = @category.chocolates.build(chocolate_params)
       @chocolate.user = current_user
@@ -37,7 +34,6 @@ class ChocolatesController < ApplicationController
       @chocolate = current_user.chocolates.build(chocolate_params)
     end
     if @chocolate.save
-      # @chocolate.image.attach(params[:chocolate][:image])
       redirect_to chocolate_path(@chocolate), alert: "successfully created chocolate."
     else
       render :new
@@ -48,8 +44,6 @@ class ChocolatesController < ApplicationController
   end
 
   def update
-    # @chocolate.image.purge_later
-    # @chocolate.image.attach(params[:chocolate][:image])
     if @chocolate.update(chocolate_params)
       redirect_to chocolate_path(@chocolate)
     else

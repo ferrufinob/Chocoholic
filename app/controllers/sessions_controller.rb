@@ -29,7 +29,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    #delete the saved user_id key/value from the cookie
     session.delete(:user_id)
     flash[:message] = "Successfully Signed Out"
     redirect_to login_path
