@@ -66,7 +66,8 @@ class ReviewsController < ApplicationController
 
   def authorized_to_edit
     if current_user != @review.user
-      redirect_to chocolates_path, alert: "Action not authorized."
+      flash[:message] = "Action not authorized."
+      redirect_to chocolates_path
     end
   end
 end

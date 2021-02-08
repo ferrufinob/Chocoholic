@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create]
   end
 
-  resources :categories, except: [:show, :edit, :update, :destroy] do
+  resources :categories, only: [:index] do
     resources :chocolates, shallow: true
   end
 end

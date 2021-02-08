@@ -34,6 +34,7 @@ class ChocolatesController < ApplicationController
       @chocolate = current_user.chocolates.build(chocolate_params)
     end
     if @chocolate.save
+      @chocolate.image.attach(params[:chocolate][:image])
       redirect_to chocolate_path(@chocolate), alert: "successfully created chocolate."
     else
       render :new
@@ -44,6 +45,8 @@ class ChocolatesController < ApplicationController
   end
 
   def update
+    #@chocolate.image.purge_later
+    # @chocolate.image.attach(params[:chocolate][:image])
     if @chocolate.update(chocolate_params)
       redirect_to chocolate_path(@chocolate)
     else

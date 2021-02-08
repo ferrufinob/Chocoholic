@@ -8,11 +8,11 @@
     <% end %>
     <h4>additonal info: <%= @chocolate.note %></h4>
      <br>
-    <h4>Dairy Free: <%= @chocolate.dairy_free_yn %></h4>
+    <h4>Dairy Free: <%= @chocolate.dairy_free %></h4>
      <br>
     <h4>Nut Free: <%= @chocolate.nut_free_yn %></h4>
      <br>
-    <% if current_user %>
+    <% if @chocolate.user == current_user %>
       <%= link_to "Edit", edit_chocolate_path(@chocolate) %>
       <%= link_to "Delete", @chocolate, method: :delete, data: { confirm: "Are you sure?" } %> <br>
     <% end %>

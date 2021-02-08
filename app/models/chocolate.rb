@@ -9,6 +9,7 @@ class Chocolate < ApplicationRecord
   validates :flavor, uniqueness: { scope: :brand, message: " already exists for this brand" }
   validate :acceptable_image
   validates :image, presence: true
+  scope :by_created_at, -> { order("created_at DESC") }
 
   scope :highest_rating, -> { left_outer_joins(:reviews).group("chocolates.id").order("avg(reviews.rating) DESC") }
 

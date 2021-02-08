@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @chocolates = current_user.chocolates.with_attached_image
+    @chocolates = current_user.chocolates.by_created_at.with_attached_image
   end
 
   private
