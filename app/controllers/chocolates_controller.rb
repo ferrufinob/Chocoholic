@@ -38,7 +38,7 @@ class ChocolatesController < ApplicationController
     end
     if @chocolate.save
       # @chocolate.image.attach(params[:chocolate][:image])
-      redirect_to chocolate_path(@chocolate)
+      redirect_to chocolate_path(@chocolate), alert: "successfully created chocolate."
     else
       render :new
     end
@@ -83,13 +83,15 @@ class ChocolatesController < ApplicationController
 
   def set_chocolate
     unless @chocolate = Chocolate.find_by_id(params[:id])
-      redirect_to chocolates_path, alert: "Chocolate not found."
+      flash[:message] = "Chocolate not found"
+      redirect_to chocolates_path
     end
   end
 
   def authorized_to_edit
     if current_user != @chocolate.user
-      redirect_to chocolates_path, alert: "Action not authorized."
+      flash[:message] = "Action not authorized."
+      redirect_to chocolates_path
     end
   end
 

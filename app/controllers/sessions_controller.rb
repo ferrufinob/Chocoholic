@@ -23,14 +23,16 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user), alert: "Successful log in"
     else
-      redirect_to login_path, alert: "Email and Password Don't Match"
+      flash[:message] = "Email and Password Don't Match"
+      redirect_to login_path
     end
   end
 
   def destroy
     #delete the saved user_id key/value from the cookie
     session.delete(:user_id)
-    redirect_to login_path, alert: "Successfully Signed Out"
+    flash[:message] = "Successfully Signed Out"
+    redirect_to login_path
   end
 
   private

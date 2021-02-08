@@ -20,6 +20,11 @@
       <p><%= alert %></p>
     <% end %>
     <%= render partial: "layouts/profile_navbar" %>
+    <div class="flash">
+    <% if flash[:message] %>
+    <%= flash[:message] %>
+    <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

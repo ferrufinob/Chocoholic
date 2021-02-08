@@ -1,5 +1,6 @@
 <div class="form-box">
 <div class="input-group">
+<%= render partial: "layouts/errors", locals: { object: @chocolate } %>
 <%= form_for ([@category, @chocolate]) do |f| %>
 <%= f.label :brand %>
 <%= f.text_field :brand %> 
