@@ -20,7 +20,7 @@ class ChocolatesController < ApplicationController
   end
 
   def new
-    if @category
+    if params[:category_id] && @category
       @chocolate = @category.chocolates.build
     else
       @chocolate = Chocolate.new
