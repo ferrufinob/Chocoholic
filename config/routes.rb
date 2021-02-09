@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/auth/google_oauth2/callback", to: "sessions#google"
   resources :users, only: [:show, :new, :create]
 
-  resources :reviews
+  resources :reviews, only: [:index, :edit, :update, :destory]
   # resources :chocolates
   get "chocolates/most_popular" => "chocolates#most_popular"
   resources :chocolates do
