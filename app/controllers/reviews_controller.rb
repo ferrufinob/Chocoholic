@@ -38,8 +38,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    @review.update(review_params)
-    if @review.save
+    if @review.update(review_params)
       redirect_to chocolate_path(@review.chocolate)
     else
       render :edit
