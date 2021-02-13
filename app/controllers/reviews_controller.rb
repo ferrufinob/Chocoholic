@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     if params[:chocolate_id] && @chocolate = Chocolate.find_by_id(params[:chocolate_id])
       @reviews = @chocolate.reviews.by_created_at
     elsif params[:user_id] && @user = User.find_by_id(params[:user_id])
-      @reviews = @user.reviews
+      @reviews = @user.reviews.by_created_at
     else
       @reviews = current_user.reviews.by_created_at
     end
