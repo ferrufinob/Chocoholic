@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :chocolates, only: [:index, :new, :create]
   end
 
-  resources :users do
-    resources :reviews
+  resources :users, only: [:show] do
+    resources :reviews, only: [:index]
   end
 end
