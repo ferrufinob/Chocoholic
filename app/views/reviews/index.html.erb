@@ -4,6 +4,7 @@
 <div class="user-reviews">
     <% @reviews.each do |review| %>
         <%= render partial: "reviews", locals: { review: review } %>
+        <hr>
     <% end %>
 <% end %>
 </div>

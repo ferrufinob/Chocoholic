@@ -7,5 +7,4 @@
 <% if review.user == current_user %>
   <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %>
   <%= link_to "Edit", edit_review_path(review) %>
-  <hr>
 <% end %>

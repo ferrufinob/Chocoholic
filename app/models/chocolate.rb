@@ -10,6 +10,7 @@ class Chocolate < ApplicationRecord
   validate :acceptable_image
   validates :image, presence: true
   scope :by_created_at, -> { order("created_at DESC") }
+  # scope :filter_dairy, -> { where("dairy_free = ?", true) }
   scope :highest_rating, -> { left_outer_joins(:reviews).group("chocolates.id").order("avg(reviews.rating) DESC") }
 
   # scope :most_reviews, -> { joins(:reviews).group("chocolates.id").order("COUNT(reviews.chocolate_id)DESC") }

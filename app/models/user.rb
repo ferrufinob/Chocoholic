@@ -5,15 +5,15 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :name, presence: true
-  validates :password, length: { minimum: 6 }
-
+  #only run password validation in case of a new record(fixes omniauth issue)
+  validates :password, length: { minimum: 6 }, on: :create
   has_secure_password
 
   def self.from_omniauth(auth)
     self.find_or_create_by(uid: auth[:uid], provider: auth["provider"]) do |u|
       u.name = auth[:info][:name]
       u.email = auth[:info][:email]
-      u.password = SecureRandom.hex(12)
+      u.password = SecureRandom.hex(15)
     end
   end
 end
