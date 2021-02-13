@@ -9,9 +9,9 @@
     <% end %>
     <h4>additonal info: <%= @chocolate.note %></h4>
      
-    <h4>Dairy Free: <%= @chocolate.dairy_free_yn %></h4>
+    <h4>Dairy Free: <%= human_boolean(@chocolate.dairy_free) %></h4>
     
-    <h4>Nut Free: <%= @chocolate.nut_free_yn %></h4>
+    <h4>Nut Free: <%= human_boolean(@chocolate.nut_free) %></h4>
      
     <% if @chocolate.user == current_user %>
       <%= link_to "Edit", edit_chocolate_path(@chocolate) %>

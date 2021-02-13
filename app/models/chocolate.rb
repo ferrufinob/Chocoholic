@@ -9,10 +9,10 @@ class Chocolate < ApplicationRecord
   validates :flavor, uniqueness: { scope: :brand, message: " already exists for this brand" }
   validate :acceptable_image
   validates :image, presence: true
-  scope :by_created_at, -> { order("created_at DESC") }
-  # scope :filter_dairy, -> { where("dairy_free = ?", true) }
-  scope :highest_rating, -> { left_outer_joins(:reviews).group("chocolates.id").order("avg(reviews.rating) DESC") }
 
+  scope :by_created_at, -> { order("created_at DESC") }
+  scope :highest_rating, -> { left_outer_joins(:reviews).group("chocolates.id").order("avg(reviews.rating) DESC") }
+  # scope :filter_dairy, -> { where("dairy_free = ?", true) }
   # scope :most_reviews, -> { joins(:reviews).group("chocolates.id").order("COUNT(reviews.chocolate_id)DESC") }
 
   def category_attributes=(attribute)
@@ -24,14 +24,6 @@ class Chocolate < ApplicationRecord
   #calculate the rating average to display in show page
   def average_rating
     self.reviews.average(:rating).to_i
-  end
-
-  def dairy_free_yn
-    dairy_free ? "Yes" : "No"
-  end
-
-  def nut_free_yn
-    nut_free ? "Yes" : "No"
   end
 
   def self.search(search)
