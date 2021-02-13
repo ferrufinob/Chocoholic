@@ -1,13 +1,10 @@
 <% if @reviews.blank? %>
   <p>There are no reviews yet.</p>
 <% else %>
-  <ul class="unordered-list">
+<div class="user-reviews">
     <% @reviews.each do |review| %>
-      <li class="list" class="only-reviews">
         <%= render partial: "reviews", locals: { review: review } %>
-      </li>
     <% end %>
-  </ul>
 <% end %>
 </div>
 <h4 class="back"><%= link_to "Back", url_for(:back) %></h4>

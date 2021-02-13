@@ -1,12 +1,11 @@
-<div class="second">
-  <p><%= time_ago_in_words(review.created_at) %> ago by <%= review.user.name %> for<%= link_to review.chocolate.flavor, chocolate_path(review.chocolate) %></p>
-  <% review.rating.to_i.times do %>
-    <%= fa_icon "star", class: "stars" %>
-  <% end %>
-  <p><%= review.comment %></p>
-  <br>
-  <% if review.user == current_user %>
+  
+<p><%= time_ago_in_words(review.created_at) %> ago by <%= review.user.name %> for <%= link_to review.chocolate.flavor, chocolate_path(review.chocolate) %></p>
+<% review.rating.to_i.times do %>
+  <%= fa_icon "star", class: "stars" %>
+<% end %>
+<p><%= review.comment %></p>
+<% if review.user == current_user %>
   <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %>
   <%= link_to "Edit", edit_review_path(review) %>
-  <% end %>
-</div>
+  <hr>
+<% end %>

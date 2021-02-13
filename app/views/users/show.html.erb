@@ -1,16 +1,16 @@
-<h2>Welcome to Chocoholics</h2> <br>
-<p>My Chocolates</p>
-<div class="list-margin">
-  <ul class="unordered-list collapsibleList">
+<div class="clearfix"></div>
+<section class="choc-sec">
+<h2>My Chocolates</h2>
+  <ul>
     <% @chocolates.each do |chocolate| %>
-      <li class="list">
         <% if chocolate.image.attached? %>
-          <%= image_tag chocolate.image.variant(resize_to_limit: [80, 80]) %> <br>
-          <br>
+         <section class="choc">
+         <li>
+          <%= image_tag chocolate.image.variant(resize_to_limit: [115, 115]) %>
         <% end %>
         <h3><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
-        <p>by: <%= chocolate.brand %></p>
-      </li>
+        </li>
+      </section>
     <% end %>
   </ul>
-</div>
+</section>

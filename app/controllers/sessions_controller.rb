@@ -9,12 +9,8 @@ class SessionsController < ApplicationController
 
   def google
     user = User.from_omniauth(auth)
-    if user.valid?
-      session[:user_id] = user.id
-      redirect_to user_path(user)
-    else
-      redirect_to login_path
-    end
+    session[:user_id] = user.id
+    redirect_to user_path(user)
   end
 
   def create

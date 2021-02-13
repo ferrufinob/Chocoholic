@@ -2,14 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
 
-  # rescue_from ActionController::InvalidAuthenticityToken do |_exception|
-  #   redirect_back fallback_location: root_path, alert: "Invalid Action"
-  # end
+  rescue_from ActionController::InvalidAuthenticityToken do |_exception|
+    redirect_back fallback_location: root_path, alert: "Invalid Action"
+  end
 
   protected
 
   def current_user
-    
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 

@@ -1,15 +1,17 @@
-<h1 class="headers" >Most Popular Chocolates</h1>
-<div class="list-margin">
-  <ul class="unordered-list">
+<section class="choc-sec">
+<div class="clearfix"></div>
+<h2 >Most Popular Chocolates</h2>
+  <ul>
     <% @chocolates.each do |chocolate| %>
-      <li class="list">
+       <section class="choc">
         <% if chocolate.image.attached? %>
-          <%= image_tag chocolate.image.variant(resize_to_limit: [80, 80]) %> <br>
-          <br>
+         <li> 
+         <%= image_tag chocolate.image.variant(resize_to_limit: [115, 115]) %>
         <% end %>
         <h3><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
-        <p>by: <%= chocolate.brand %></p>
       </li>
+      </section>
     <% end %>
   </ul>
-</div>
+  </section>
+

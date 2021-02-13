@@ -1,7 +1,8 @@
-<div class="navbar">
-  <ul>
-    <% if logged_in? %>
-      <%= render partial: "layouts/search" %>
+<% if logged_in? %>
+<section class="intro">
+<nav>
+ <a href="#" id="menu-icon"></a>
+ <ul>
       <li><%= link_to "#{current_user.name}'s Profile", user_path(current_user) %></li>
       <li><%= link_to "Most Popular", chocolates_most_popular_path %></li>
       <li><%= link_to "All Chocolates", chocolates_path %></li>
@@ -9,8 +10,14 @@
       <li><%= link_to "New Chocolate", new_chocolate_path %></li>
       <li><%= link_to "Reviewed Chocolates", reviews_path %></li>
       <li><%= link_to "Logout", logout_path, method: :delete %></li>
-    <% else %>
-      <li><%= link_to "Home", root_path %></li>
-    <% end %>
-  </ul>
+    
+ </ul>
+</nav>
+
+<div class="inner">
+<div class="content">
+<h1>Welcome Chocoholics</h1>
 </div>
+</div>
+</section>
+<% end %>

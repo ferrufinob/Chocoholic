@@ -1,13 +1,21 @@
-<h1 class="headers">All Chocolates</h1>
+<%= render partial: 'layouts/search' %>
+<div class="clearfix"></div>
+<section class="choc-sec">
 <% if @category %>
   <p><%= link_to "Add New Chocolate to #{@category.name}", new_category_chocolate_path(@category) %> </p>
 <% end %>
+<h2>All Chocolates</h2>
+<ul>
 <% @chocolates.each do |chocolate| %>
-  <div class="index">
     <% if chocolate.image.attached? %>
+    <section class="choc">
+    <li>
       <%= image_tag chocolate.image.variant(resize_to_limit: [115, 115]) %>
     <% end %>
     <h3 class="list-font"><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
     <p>by: <%= chocolate.brand %></p>
-  </div>
+    </li>
+    </section>
 <% end %>
+</ul>
+</section>
