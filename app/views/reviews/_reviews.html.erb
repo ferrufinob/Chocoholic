@@ -5,6 +5,6 @@
 <% end %>
 <p><%= review.comment %></p>
 <% if review.user == current_user %>
-  <%= link_to "Delete", review, method: :delete, data: { confirm: "Are you sure?" } %>
-  <%= link_to "Edit", edit_review_path(review) %>
+  <%= link_to (fa_icon "trash" ), review, method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to (fa_icon "edit" ), edit_review_path(review) %>
 <% end %>

@@ -14,8 +14,8 @@
     <h4>Nut Free: <%= human_boolean(@chocolate.nut_free) %></h4>
      
     <% if @chocolate.user == current_user %>
-      <%= link_to "Edit", edit_chocolate_path(@chocolate) %>
-      <%= link_to "Delete", @chocolate, method: :delete, data: { confirm: "Are you sure?" } %> <br>
+      <%= link_to (fa_icon "edit lg"), edit_chocolate_path(@chocolate) %>
+      <%= link_to (fa_icon "trash lg") , @chocolate, method: :delete, data: { confirm: "Are you sure?" } %> <br>
     <% end %>
     <p>Added: <%= time_ago_in_words(@chocolate.created_at) %> ago</p>
   </div>

@@ -352,6 +352,10 @@ a {
   font-size: 18px;
 }
 
+.break {
+  display: none;
+}
+
 /* search bar */
 
 .search {
