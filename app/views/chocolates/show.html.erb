@@ -1,6 +1,7 @@
 
 <div class="wrapper">
   <div class="first">
+   <div class="back"><%= link_to (fa_icon "arrow-left lg"), url_for(:back) %></div>
   <h1 class="headers">Flavor: <%= @chocolate.flavor %></h1>
     <h3>Brand: <%= @chocolate.brand %></h3>
     <h3>Category: <%= @chocolate.category.name %></h3>
@@ -35,4 +36,4 @@
     <% end %>
   </div>
 </div>
-<h4 class="back"><%= link_to "Back", url_for(:back) %></h4>
+

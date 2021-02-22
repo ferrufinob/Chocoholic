@@ -1,17 +1,6 @@
 <section class="choc-sec">
 <div class="clearfix"></div>
 <h2 >Most Popular Chocolates</h2>
-  <ul>
-    <% @chocolates.each do |chocolate| %>
-       <section class="choc">
-        <% if chocolate.image.attached? %>
-         <li> 
-         <%= image_tag chocolate.image.variant(resize_to_limit: [115, 115]) %>
-        <% end %>
-        <h3><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
-      </li>
-      </section>
-    <% end %>
-  </ul>
+  <%= render partial: 'chocolates', locals: {chocolates: @chocolates} %>
   </section>
 

@@ -1,0 +1,13 @@
+<ul>
+<% chocolates.each do |chocolate| %>
+    <% if chocolate.image.attached? %>
+    <section class="choc">
+    <li>
+      <%= image_tag chocolate.image.variant(resize_to_limit: [115, 115]) %>
+    <% end %>
+    <h3 class="list-font"><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
+    <p>by: <%= chocolate.brand %></p>
+    </li>
+    </section>
+<% end %>
+</ul>

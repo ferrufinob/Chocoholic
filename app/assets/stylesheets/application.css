@@ -274,18 +274,6 @@ p {
   /* font-weight: bold; */
 }
 
-.back a {
-  font-size: 20px;
-  text-decoration: none;
-  color: black;
-}
-
-.back {
-  text-align: left;
-  margin-left: 20px;
-  margin-bottom: 30px;
-}
-
 h4 {
   letter-spacing: 2px;
   color: #2c2c2c;
@@ -356,6 +344,9 @@ a {
   display: none;
 }
 
+.back {
+  margin-right: 500px;
+}
 /* search bar */
 
 .search {

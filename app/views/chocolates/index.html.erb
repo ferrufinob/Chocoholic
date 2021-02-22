@@ -1,23 +1,16 @@
 <%= render partial: 'layouts/search' %>
 <div class="clearfix"></div>
 <section class="choc-sec">
-<% if @category %>
-  <p><%= fa_icon "plus-square" %><%= link_to "Add to #{@category.name}", new_category_chocolate_path(@category) %>
-   <br class="break">  
-  <%= fa_icon "arrow-left" %><%= link_to "Back to Categories", categories_path %></p>
-<% end %>
-<h2>All Chocolates</h2>
-<ul>
-<% @chocolates.each do |chocolate| %>
-    <% if chocolate.image.attached? %>
-    <section class="choc">
-    <li>
-      <%= image_tag chocolate.image.variant(resize_to_limit: [115, 115]) %>
-    <% end %>
-    <h3 class="list-font"><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
-    <p>by: <%= chocolate.brand %></p>
-    </li>
-    </section>
-<% end %>
-</ul>
+  <% if @category %>
+    <p>
+      <%= fa_icon "arrow-left" %><%= link_to "Back to Categories", categories_path %>
+      <br class="break">
+      <%= fa_icon "plus-square" %><%= link_to "Add to #{@category.name}", new_category_chocolate_path(@category) %>
+    </p>
+    <h2><%= @category.name %></h2>
+    <% else %>
+    <h2>All Chocolates</h2>
+  <% end %>
+  
+  <%= render partial: 'chocolates', locals: {chocolates: @chocolates} %>
 </section>

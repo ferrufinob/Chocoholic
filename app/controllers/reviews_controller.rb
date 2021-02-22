@@ -49,7 +49,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to reviews_path, alert: "Successfully Deleted Comment"
+    redirect_to chocolate_path(@review.chocolate), alert: "Successfully Deleted Comment"
   end
 
   private

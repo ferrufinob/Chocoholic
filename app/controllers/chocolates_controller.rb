@@ -10,7 +10,7 @@ class ChocolatesController < ApplicationController
     elsif params[:search]
       @chocolates = Chocolate.search(params[:search]).with_attached_image
     else
-      @chocolates = Chocolate.all.with_attached_image
+      @chocolates = Chocolate.with_attached_image
     end
   end
 
