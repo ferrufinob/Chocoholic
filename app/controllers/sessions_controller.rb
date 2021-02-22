@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    redirect_to login_path, alert: "Successfully Signed out"
+    redirect_to login_path, alert: "Signed out"
   end
 
   private

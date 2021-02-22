@@ -35,7 +35,7 @@ class ChocolatesController < ApplicationController
     end
     if @chocolate.save
       @chocolate.image.attach(params[:chocolate][:image])
-      redirect_to chocolate_path(@chocolate), alert: "successfully created chocolate."
+      redirect_to chocolate_path(@chocolate), alert: "new chocolate added."
     else
       render :new
     end
@@ -50,13 +50,13 @@ class ChocolatesController < ApplicationController
     if @chocolate.update(chocolate_params)
       redirect_to chocolate_path(@chocolate)
     else
-      render "edit"
+      render :edit
     end
   end
 
   def destroy
     @chocolate.destroy
-    redirect_to chocolates_url, alert: "successfully deleted chocolate"
+    redirect_to chocolates_url, alert: "chocolate deleted"
   end
 
   def most_popular
