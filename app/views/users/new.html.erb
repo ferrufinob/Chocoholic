@@ -1,7 +1,8 @@
 <%= render partial: "layouts/errors", locals: { object: @user } %>
+
+<div class=">
 <h1 class="headers">Sign Up </h1>
-<div class="signup-login-review">
-  <p>Already have an account?<%= link_to "login", login_path %></p>
+  <p>Have an account?<%= link_to "Sign in", login_path %></p>
   <%= form_for @user do |f| %>
     <div class="input-group">
       <%= f.label :name %>

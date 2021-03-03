@@ -159,6 +159,7 @@ h2 {
 .banner {
   display: flex;
   margin-top: 80px;
+  background-color: #f9f7f7;
 }
 
 .left-column,
@@ -167,12 +168,13 @@ h2 {
 }
 
 .right-column img {
-  width: 90%;
+  width: 80%;
+  margin: 5px;
 }
 
 .left-column h1 {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 250px;
   font-size: 35px;
   color: #2c2c2c;
 }
@@ -218,20 +220,30 @@ span {
   text-align: center;
 }
 
-.signup-login-review {
-  width: 300px;
-  height: 350px;
+.signup-login {
+  width: 350px;
+  height: 380px;
   margin: 6% auto;
   background-color: #f8f7ff;
+  /* background-color: #f4f4f4; */
+  padding: 80px;
+}
+.review-form {
+  width: 350px;
+  height: 200px;
+  margin: 6% auto;
+  background-color: #f8f7ff;
+  /* background-color: #f4f4f4; */
   padding: 80px;
 }
 
 .form-box {
   width: 390px;
   height: 510px;
-  margin: 6% auto;
+  margin: 3% auto;
   background-color: #f8f7ff;
-  padding: 80px;
+  /* padding: 80px; */
+  padding: 80px 80px 150px 80px;
 }
 
 .input-group {
@@ -338,6 +350,7 @@ a {
   text-decoration: none;
   letter-spacing: 1px;
   font-size: 18px;
+  font-weight: bold;
 }
 
 .break {
@@ -452,5 +465,22 @@ hr {
   }
   .break {
     display: block;
+  }
+  .wrapper {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+  }
+  .second {
+    width: 45%;
+    height: 50%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .first {
+    width: 45%;
+    height: 50%;
+    margin: 0 auto;
+    padding: 0;
   }
 }

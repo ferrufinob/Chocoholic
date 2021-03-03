@@ -3,10 +3,11 @@
     <% if chocolate.image.attached? %>
     <section class="choc">
     <li>
-      <%= image_tag chocolate.image.variant(resize_to_limit: [115, 115]) %>
+      <%= image_tag chocolate.image.variant(resize_to_limit: [100, 100]) %>
     <% end %>
     <h3 class="list-font"><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
     <p>by: <%= chocolate.brand %></p>
+    <%= count_display(chocolate.reviews) %>
     </li>
     </section>
 <% end %>

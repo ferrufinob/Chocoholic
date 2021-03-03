@@ -1,2 +1,7 @@
-<h1 class="headers">New Chocolate</h1>
+<% if @category %>
+  <h1 class="headers">New Chocolate for <%= @category.name %></h1>
+  <% else %>
+  <h1 class="headers">New Chocolate</h1>
+<% end %>
+
 <%= render "form" %>

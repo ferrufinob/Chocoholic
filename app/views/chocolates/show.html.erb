@@ -6,7 +6,7 @@
     <h3>Brand: <%= @chocolate.brand %></h3>
     <h3>Category: <%= @chocolate.category.name %></h3>
     <% if @chocolate.image.attached? %>
-      <%= image_tag @chocolate.image.variant(resize_to_limit: [300, 300]) %>
+      <%= image_tag @chocolate.image.variant(resize_to_limit: [400, 400]) %>
     <% end %>
     <h4>additonal info: <%= @chocolate.note %></h4>
      
