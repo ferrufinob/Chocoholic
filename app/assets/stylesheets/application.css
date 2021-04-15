@@ -38,6 +38,7 @@ h2 {
   width: fit-content;
   margin: auto;
   display: flex;
+  margin-top: 80px;
   justify-content: center;
 }
 
@@ -71,6 +72,7 @@ h2 {
 .welcome-btns a {
   color: #fff;
   text-align: center;
+  text-decoration: none;
 }
 
 footer {

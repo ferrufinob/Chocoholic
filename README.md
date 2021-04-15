@@ -1,20 +1,33 @@
 # README
 
-Chocoholics is a chocolate review app. It is like an encyclopedia for chocolates, users can post chocolates that they have tried and other users can view them and rate them. Chocolates are organized by categories( dark chocolate, baking chocolate, milk chocolate etc...)
+Chocoholics is a chocolate review app. It is like an encyclopedia for chocolates, users can post chocolates that they have tried and other users can view and rate them. Chocolates are organized by categories( dark chocolate, baking chocolate, milk chocolate etc...)
+
+## Features
+
+- [x] Models: User, Category, Chocolate, Review
+- [x] Standard user Authentication and Authorization
+- [x] Google OmniAuth Authentication
+- [x] Search Bar
+
+![demo](demo.gif)
 
 ## Technologies
 
 - Rails v6.0.3
 - Ruby v2.6.1
 
-## Usage
+## Installation
 
-1. fork and clone repo
-2. bundle install
-3. brew install imagemagick to view images
-4. run rake db:migrate
-5. run rails s
-6. navigate to localhost:3000
+```ruby
+git clone
+bundle install
+brew install:imagemagick #to view images
+rails db:migrate
+rails db:seed
+rails s
+```
+
+Navitage to 'http://localhost/3000'
 
 ## Contributions
 
