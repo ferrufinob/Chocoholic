@@ -1,18 +1,18 @@
 <%= render partial: "layouts/errors", locals: { object: @user } %>
 
 <div class="signup-login">
-<h1 class="headers">Sign Up </h1>
-  <p>Have an account?<%= link_to "Sign in", login_path %></p>
+<h1>Sign Up </h1>
+  Have an account?<%= link_to "Sign in", login_path %>
   <%= form_for @user do |f| %>
     <div class="input-group">
       <%= f.label :name %>
-      <%= f.text_field :name %> <br>
+      <%= f.text_field :name %>
       <%= f.label :email %>
-      <%= f.email_field :email %> <br>
+      <%= f.email_field :email %>
       <%= f.label :password %>
-      <%= f.password_field :password %><br>
-      <%= f.submit "Create Account", class: "submit-btn" %>
-      <p><%= link_to "Sign in with Google", "/auth/google_oauth2", method: "post" %></p>
+      <%= f.password_field :password %> <br>
+      <%= f.submit "Create Account", class: "submit" %> <br>
+      <%= link_to "Sign in with Google", "/auth/google_oauth2", method: "post" %>
     <% end %>
   </div>
 </div>

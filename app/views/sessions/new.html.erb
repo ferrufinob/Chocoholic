@@ -1,15 +1,15 @@
 
 <div class="signup-login">
-<h1 class="headers">Sign In</h1>
-  <p>New to Chocoholics?<%= link_to "Create an account", signup_path %></p>
+<h1>Sign In</h1>
+  New to Chocoholics?<%= link_to "Create an account", signup_path %>
   <%= form_for :user do |f| %>
-    <div class="input-group">
+  <div class="input-group">
       <%= f.label :email %>
-      <%= f.email_field :email %> <br>
+      <%= f.email_field :email %> 
       <%= f.label :password %>
-      <%= f.password_field :password %> <br>
-      <%= f.submit "Sign In", class: "submit-btn" %>
-      <p><%= link_to "Sign in with Google", "/auth/google_oauth2", method: "post" %></p>
-    </div>
+      <%= f.password_field :password %>  <br>
+      <%= f.submit "Sign In", class: "submit" %> <br>
+      </div>
+      <%= link_to "Sign in with Google", "/auth/google_oauth2", method: "post" %>
   <% end %>
 </div>

@@ -1,16 +1,12 @@
 
 <%= render partial: 'layouts/search' %>
 
-<div class="clearfix"></div>
-<section class="choc-sec">
-<section class="choc">
 <h2>Pick a Category</h2>
-<ul>
+<div class="categories-div">
     <% @categories.each do |category| %>
-      <li class="list">
+      <div class="category">
         <h3><%= link_to category.name, category_chocolates_path(category) %></h3>
-      </li>
+      </div>
     <% end %>
-    </ul>
-</section>
-</section>
+</div>
+

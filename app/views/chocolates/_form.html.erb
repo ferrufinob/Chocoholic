@@ -1,7 +1,7 @@
 <%= render partial: "layouts/errors", locals: { object: @chocolate } %>
-<div class="form-box">
-  <div class="input-group">
+<div class="form">
     <%= form_for ([@category, @chocolate]) do |f| %>
+    <div class="input-fields">
       <%= f.label :brand %>
       <%= f.text_field :brand %>
       <%= f.label :flavor %>
@@ -16,13 +16,12 @@
       <%= f.text_area :note, placeholder: "optional", rows: 5 %>
       <% unless @category %>
         <%= f.label :category, "Choose a Category" %>
-        <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %> <br>
-        <br>
+        <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
         <%= f.fields_for :category do |cat_field| %>
-          create your own if no match found<%= cat_field.text_field :name, placeholder: "add category name" %>
+          create your own if no match found  <%= cat_field.text_field :name, placeholder: "add category name" %>
         <% end %>
       <% end %>
+      </div> <br>
       <%= f.submit "Submit", class: "submit-btn" %>
     <% end %>
-  </div>
 </div>

@@ -1,16 +1,5 @@
-<div class="clearfix"></div>
-<section class="choc-sec">
+
 <h2>My Chocolates</h2>
-  <ul>
-    <% @chocolates.each do |chocolate| %>
-        <% if chocolate.image.attached? %>
-         <section class="choc">
-         <li>
-          <%= image_tag chocolate.image.variant(resize_to_limit: [115, 115]) %>
-        <% end %>
-        <h3><%= link_to chocolate.flavor, chocolate_path(chocolate) %></h3>
-        </li>
-      </section>
-    <% end %>
-  </ul>
-</section>
+<div class="choco-div">
+  <%= render partial: 'chocolates/chocolates', locals: {chocolates: @chocolates} %>
+  </div>
