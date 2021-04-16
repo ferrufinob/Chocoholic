@@ -22,6 +22,7 @@ body {
   margin: 0;
   font-family: "Dosis", sans-serif;
   padding-bottom: 25px;
+  background-color: #f8f9f5;
 }
 
 /* Fonts */
@@ -368,7 +369,8 @@ nav:hover ul {
 }
 
 .second a,
-.user-reviews a {
+.user-reviews a,
+.first a {
   margin: 10px;
   color: #fb7381;
   text-decoration: none;
@@ -463,23 +465,6 @@ hr {
   .content h1 {
     font-size: 180%;
   }
-  /* .wrapper {
-    width: 100%;
-    margin: auto;
-    padding: 0;
-  }
-  .second {
-    width: 45%;
-    height: 50%;
-    margin: 0 auto;
-    padding: 0;
-  }
-  .first {
-    width: 45%;
-    height: 50%;
-    margin: 0 auto;
-    padding: 0;
-  } */
 }
 
 @media screen and (max-width: 768px) {
