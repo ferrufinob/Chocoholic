@@ -90,6 +90,9 @@ footer {
   font-size: 1em;
 }
 
+input[type="submit"] {
+  cursor: pointer;
+}
 /* Login & Signin */
 
 .signup-login {
@@ -242,6 +245,7 @@ nav:hover ul {
   font-size: 1.2em;
   white-space: pre-line;
   line-height: 1.9em;
+  overflow: hidden;
 }
 
 .input-fields input[type="text"],
@@ -275,6 +279,7 @@ textarea {
 
 /* Search Bar */
 .search {
+  display: flex;
   float: left;
   margin: auto;
   padding: 5px;
@@ -294,6 +299,7 @@ textarea {
 
 .search input[type="submit"] {
   padding: 5px 20px;
+  margin-left: 10px;
   outline: none;
   border: 1px solid #fb7381;
   border-radius: 18px;
@@ -461,7 +467,7 @@ hr {
     padding: 8px 0;
     left: 23px;
     top: 34px;
-    width: 50%;
+    width: fit-content;
   }
   .inner {
     font-size: 120%;
@@ -469,9 +475,6 @@ hr {
   .content h1 {
     font-size: 180%;
   }
-}
-
-@media screen and (max-width: 768px) {
   .choco-div {
     width: 90%;
   }
