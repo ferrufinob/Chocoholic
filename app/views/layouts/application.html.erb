@@ -16,10 +16,10 @@
   </head>
   <body>
     <!-- show flash message if any: -->
+     <%= render partial: "layouts/profile_navbar" %>
     <% if alert %>
       <p><%= alert %></p>
     <% end %>
-    <%= render partial: "layouts/profile_navbar" %>
     <div class="flash">
       <% if flash[:message] %>
         <%= flash[:message] %>

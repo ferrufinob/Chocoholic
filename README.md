@@ -9,6 +9,10 @@ Chocoholics is a chocolate review app. It is like an encyclopedia for chocolates
 - [x] Google OmniAuth Authentication
 - [x] Search Bar
 
+## Future Features
+
+- [ ] Responsive Web Design
+
 ![demo](app.gif)
 
 ## Technologies
