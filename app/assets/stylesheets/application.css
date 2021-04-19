@@ -275,7 +275,7 @@ textarea {
 }
 
 /* Search Bar */
-.search {
+.search-bar {
   display: flex;
   float: left;
   margin: auto;
@@ -294,7 +294,7 @@ textarea {
   border-radius: 2px 0 0 2px;
 }
 
-.search input[type="submit"] {
+.search-btn input[type="submit"] {
   padding: 5px 20px;
   margin-left: 10px;
   outline: none;
@@ -409,6 +409,7 @@ hr {
   display: block;
   padding: 10px;
   margin-bottom: 10px;
+  margin-top: 50px;
 }
 
 .category-nav a {
